@@ -3,43 +3,61 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Automação sem Perder a Essência — Workshop Wellness + IA</title>
-  <meta name="description" content="Automatize atendimento e agendamentos com IA sem perder a essência da sua marca. Workshop prático, materiais prontos e GPT personalizado.">
+  <title>Automação sem Perder a Essência — Solinte Digital</title>
+  <meta name="description" content="Automatize atendimento e agendamentos com IA sem perder a essência da sua marca. Comunicação acolhedora para negócios de Wellness.">
   <link rel="icon" href="data:;base64,iVBORw0KGgo=">
 
   <!-- Open Graph / Social -->
-  <meta property="og:title" content="Automação sem Perder a Essência">
+  <meta property="og:title" content="Automação sem Perder a Essência — Solinte Digital">
   <meta property="og:description" content="Automatize sem parecer um robô. IA como parceira que cuida, comunica e encanta como você.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://seu-subdominio.vercel.app/">
-  <meta property="og:image" content="https://via.placeholder.com/1200x630.png?text=Workshop+Wellness+%2B+IA">
+  <meta property="og:url" content="https://solinte.vercel.app/">
+  <meta property="og:image" content="https://via.placeholder.com/1200x630.png?text=Solinte+Digital+%E2%80%94+Wellness+%2B+IA">
 
   <style>
     *,*::before,*::after{box-sizing:border-box}html,body{margin:0;padding:0}
     img{max-width:100%;display:block} a{text-decoration:none}
+
     :root{
-      --pri:#6c5ce7; --pri-700:#5846d6; --sec:#00d1b2; --ink:#0f172a; --muted:#475569;
-      --bg:#ffffff; --bg-soft:#f8fafc; --radius:20px; --shadow:0 12px 40px -24px #0007;
+      /* Paleta Wellness: acolhedora e inspiradora */
+      --pri:#2b7c79;        /* teal escuro (acessível) */
+      --pri-600:#2f8d89;
+      --pri-700:#256865;
+      --sec:#d9f2ee;        /* mint/lilás claro p/ fundos */
+      --accent:#e9e3ff;     /* lilás suave */
+      --ink:#0f172a;
+      --muted:#475569;
+      --bg:#ffffff;
+      --bg-soft:#f8fafc;
+      --radius:20px;
+      --shadow:0 12px 40px -24px #0007;
     }
     body{font-family:ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, "Helvetica Neue", Arial; color:var(--ink); background:var(--bg)}
     .container{max-width:1150px; margin-inline:auto; padding:clamp(16px,4vw,32px)}
-    .badge{display:inline-flex; gap:8px; align-items:center; background:var(--bg-soft); border:1px solid #e2e8f0; color:var(--muted); padding:8px 12px; border-radius:999px; font-weight:600; font-size:14px}
-    header{position:sticky; top:0; z-index:50; backdrop-filter:saturate(180%) blur(8px); background:color-mix(in srgb, var(--bg) 85%, transparent); border-bottom:1px solid #e2e8f0}
+    .badge{display:inline-flex; gap:8px; align-items:center; background:var(--sec); border:1px solid #cfe7e3; color:var(--pri-700); padding:8px 12px; border-radius:999px; font-weight:600; font-size:14px}
+    header{position:sticky; top:0; z-index:50; backdrop-filter:saturate(180%) blur(10px); background:color-mix(in srgb, var(--bg) 85%, transparent); border-bottom:1px solid #e2e8f0}
     .nav{display:flex; align-items:center; justify-content:space-between}
     .brand{display:flex; gap:10px; align-items:center; font-weight:900}
-    .brand .logo{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,var(--pri),var(--sec)); box-shadow:var(--shadow)}
+    .brand .logo{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,#9fe3d8,#cfc8ff); box-shadow:var(--shadow)}
+    /* OPCIONAL: usar uma imagem da sua logo e recolorizar */
+    .brand .logo-img{width:120px; height:auto}
+    /* Recolor via MASK (melhor p/ logo monocromática em PNG/SVG branco com transparência) */
+    .logo-mask{width:140px; height:40px; background:linear-gradient(135deg,#9fe3d8,#cfc8ff); -webkit-mask: url('logo-mask.png') center/contain no-repeat; mask: url('logo-mask.png') center/contain no-repeat;}
+    /* Recolor aproximado via FILTER (para PNG colorida) — ajuste se necessário */
+    .recolor-teal{filter: brightness(0) saturate(100%) invert(36%) sepia(12%) saturate(1200%) hue-rotate(130deg) brightness(88%) contrast(90%);}
     .nav a{color:var(--ink); font-weight:700}
     .navlinks{display:flex; gap:18px; align-items:center}
-    .btn{display:inline-flex; align-items:center; justify-content:center; gap:10px; padding:12px 18px; border-radius:14px; font-weight:800; border:1px solid transparent}
+    .btn{display:inline-flex; align-items:center; justify-content:center; gap:10px; padding:12px 18px; border-radius:14px; font-weight:800; border:1px solid transparent; transition:transform .06s ease}
     .btn-primary{background:var(--pri); color:#fff; box-shadow:0 8px 30px -12px var(--pri)}
-    .btn-primary:hover{background:var(--pri-700)}
+    .btn-primary:hover{background:var(--pri-600); transform:translateY(-1px)}
     .btn-ghost{background:transparent; color:var(--ink); border-color:#cbd5e1}
     .hero{padding:96px 0 64px; background:
-      radial-gradient(90% 120% at 100% -10%, color-mix(in srgb, var(--pri) 9%, transparent), transparent),
-      radial-gradient(90% 120% at -10% 100%, color-mix(in srgb, var(--sec) 10%, transparent), transparent)}
+      radial-gradient(120% 140% at 110% -10%, color-mix(in srgb, var(--accent) 50%, transparent), transparent),
+      radial-gradient(120% 140% at -10% 120%, color-mix(in srgb, var(--sec) 60%, transparent), transparent)}
     .hero h1{font-size: clamp(34px,5vw,62px); line-height:1.05; letter-spacing:-0.02em; margin:14px 0}
     .lead{font-size:clamp(16px,2.2vw,20px); color:var(--muted); max-width:820px}
     .cta{display:flex; gap:14px; flex-wrap:wrap; margin-top:24px}
+
     .sec{padding:64px 0}
     .kicker{color:var(--pri); font-weight:800; text-transform:uppercase; letter-spacing:.08em; font-size:12px}
     .h2{font-size:clamp(24px,3vw,36px); letter-spacing:-.02em; margin:.4em 0}
@@ -48,13 +66,13 @@
     .cols{display:grid; gap:22px; grid-template-columns:repeat(2,minmax(0,1fr))}
     @media (max-width:900px){.cols{grid-template-columns:1fr}}
     .card{background:var(--bg); border:1px solid #e2e8f0; border-radius:var(--radius); padding:22px; box-shadow:0 8px 30px -18px #0002}
+    .soft{background:var(--bg-soft)}
     .list{display:grid; gap:10px; margin:0; padding:0; list-style:none}
     .list li{display:flex; gap:10px; align-items:flex-start}
     .icon{flex:0 0 22px; height:22px; border-radius:6px; display:inline-grid; place-items:center; font-size:14px}
     .icon.bad{background:#fee2e2; color:#b91c1c}
     .icon.good{background:#dcfce7; color:#166534}
     .pill{display:inline-block; background:#eef2ff; color:#4338ca; padding:6px 10px; border-radius:999px; font-weight:700; font-size:12px}
-    .price{font-size:clamp(34px,4vw,46px); font-weight:900; letter-spacing:-.02em}
     .faq details{border:1px solid #e2e8f0; padding:16px 18px; border-radius:14px; background:var(--bg)}
     .faq details+details{margin-top:12px}
     .faq summary{cursor:pointer; font-weight:700}
@@ -65,43 +83,46 @@
     footer{padding:48px 0; border-top:1px solid #e2e8f0; background:var(--bg-soft)}
   </style>
 
-  <!-- Schema.org Product -->
   <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"Product",
-    "name":"Workshop Automação sem Perder a Essência",
-    "description":"Automatize atendimento e agendamento com IA sem perder a essência da sua marca.",
-    "brand":{"@type":"Brand","name":"Sua Marca"},
-    "offers":{"@type":"Offer","priceCurrency":"BRL","price":"297","availability":"https://schema.org/InStock","url":"https://seu-checkout-ou-pagina.com"}
-  }
+  {"@context":"https://schema.org","@type":"Organization","name":"Solinte Digital","url":"https://solinte.vercel.app/","contactPoint":{"@type":"ContactPoint","email":"suporte@gruposolinte.com.br","contactType":"customer support"}}
   </script>
 </head>
 <body>
+  <!-- Header -->
   <header>
     <div class="container nav">
       <a class="brand" href="#top" aria-label="Início">
-        <span class="logo" aria-hidden="true"></span><span>Wellness + IA</span>
+        <!-- Opção 1 (default): bloco com gradiente -->
+        <span class="logo" aria-hidden="true"></span>
+        <span>Solinte Digital</span>
+        <!-- Opção 2: usar sua logo mascada e recolorizada (substitua o span acima por esta div e coloque um arquivo logo-mask.png) -->
+        <!-- <div class="logo-mask" aria-hidden="true"></div> -->
+        <!-- Opção 3: usar <img> da sua logo e aplicar filtro aproximado (remova o span .logo e descomente) -->
+        <!-- <img src="logo-solinte.png" alt="Solinte Digital" class="logo-img recolor-teal"> -->
       </a>
       <nav class="navlinks" aria-label="Primária">
         <a href="#conteudo">Conteúdo</a>
-        <a href="#comprar" class="btn btn-primary">Comprar</a>
+        <a href="#solinte">Quem somos</a>
+        <a href="#contato" class="btn btn-primary">Contato</a>
       </nav>
     </div>
   </header>
 
+  <!-- Hero -->
   <section id="top" class="hero">
     <div class="container">
       <div class="badge">✨ Workshop exclusivo • Wellness + IA</div>
       <h1>Automação sem Perder a Essência</h1>
-      <p class="lead">🔹 <strong>Automatize sem parecer um robô</strong><br>Descubra como desbloquear o medo da automação e usar a Inteligência Artificial como uma parceira estratégica que cuida, comunica e encanta como você.</p>
+      <p class="lead">🔹 <strong>Automatize sem parecer um robô</strong><br>
+        Descubra como desbloquear o medo da automação e usar a Inteligência Artificial como uma parceira estratégica que cuida, comunica e encanta como você.</p>
       <div class="cta">
-        <a class="btn btn-primary" href="#comprar">Quero automatizar com essência</a>
+        <a class="btn btn-primary" href="#contato">Falar com a Solinte</a>
         <a class="btn btn-ghost" href="#conteudo">Ver o que vou receber</a>
       </div>
     </div>
   </section>
 
+  <!-- Dor/afinidade -->
   <section class="sec">
     <div class="container">
       <span class="kicker">Isso te parece familiar?</span>
@@ -115,11 +136,11 @@
             <li><span class="icon bad">❌</span><div>Acha que usar IA vai deixar sua marca robótica, fria ou igual a todo mundo?</div></li>
           </ul>
         </div>
-        <div class="card">
+        <div class="card soft">
           <span class="pill">Antes do Workshop...</span>
           <p>Você sentia que tudo dependia de você: desde a criação de conteúdo até o tom usado em cada mensagem enviada. Qualquer tentativa de automatizar parecia distanciar sua marca daquilo que você construiu com tanto cuidado.</p>
         </div>
-        <div class="card">
+        <div class="card soft">
           <span class="pill" style="background:#ecfeff; color:#0e7490">Depois do Workshop...</span>
           <p>Você entende sua linguagem com clareza e estrutura. Agora, tem ferramentas para manter sua comunicação alinhada e presente — mesmo sem precisar estar em cada detalhe. A IA entra como apoio, e não como ameaça.</p>
         </div>
@@ -127,7 +148,8 @@
     </div>
   </section>
 
-  <section id="conteudo" class="sec">
+  <!-- O que você vai receber / fazer -->
+  <section id="conteudo" class="sec" style="background:var(--bg-soft)">
     <div class="container">
       <span class="kicker">O que você vai receber</span>
       <h2 class="h2">Tudo que precisa para implementar já</h2>
@@ -157,7 +179,8 @@
     </div>
   </section>
 
-  <section class="sec" style="background:var(--bg-soft)">
+  <!-- Para quem é -->
+  <section class="sec">
     <div class="container">
       <span class="kicker">Para quem é</span>
       <h2 class="h2">Para mulheres visionárias que lideram com o coração 💜</h2>
@@ -169,7 +192,8 @@
     </div>
   </section>
 
-  <section class="sec">
+  <!-- Por que funciona (sem o card 4) -->
+  <section class="sec" style="background:var(--bg-soft)">
     <div class="container">
       <span class="kicker">Por que isso funciona</span>
       <h2 class="h2">Exatamente o que faltava para destravar a automação</h2>
@@ -178,89 +202,73 @@
         <div class="card"><h3>2) Evita retrabalho</h3><p>Sua equipe e IA passam a <strong>falar como você</strong>, com menos idas e voltas.</p></div>
         <div class="card"><h3>3) Libera sua agenda</h3><p>Comunicação <strong>delegável</strong> sem perder identidade.</p></div>
       </div>
-      <div class="card" style="margin-top:22px">
-        <h3>4) Custo acessível, alto valor</h3>
-        <p>Com <strong>menos de R$ 300</strong> você resolve o que gastaria meses tentando ajustar.</p>
+    </div>
+  </section>
+
+  <!-- QUEM SOMOS NÓS? (Solinte Digital) -->
+  <section id="solinte" class="sec" style="background:var(--sec)">
+    <div class="container cols">
+      <div>
+        <span class="kicker">Quem somos nós</span>
+        <h2 class="h2">Solinte Digital — Soluções Inteligentes para negócios</h2>
+        <p>A Solinte Digital é focada em criar e desenvolver soluções com Inteligência Artificial para empresários que enxergam o futuro. Desde 2020, ajudamos a escalar os negócios de nossos parceiros e a fortalecer sua presença no meio digital. Nossa CEO, <strong>Karine Irigoite</strong>, é uma experiente gestora e empresária dedicada a parcerias que agregam valor para empresas e novos negócios.</p>
+      </div>
+      <div class="card">
+        <ul class="list">
+          <li><span class="icon good">🤝</span><div>Parcerias de longo prazo e foco em resultado</div></li>
+          <li><span class="icon good">⚙️</span><div>Automação com IA sob medida para sua realidade</div></li>
+          <li><span class="icon good">📈</span><div>Escala com leveza: processos + marca consistente</div></li>
+          <li><span class="icon good">🌱</span><div>Abordagem humana, acolhedora e alinhada ao Wellness</div></li>
+        </ul>
       </div>
     </div>
   </section>
 
-  <section id="comprar" class="sec">
-    <div class="container">
-      <div class="cols">
-        <div class="card">
-          <span class="kicker">Investimento</span>
-          <div class="price">R$ 297</div>
-          <p>à vista ou em até 12x • acesso imediato à gravação do workshop • link personalizado do GPT da sua marca • bônus práticos em PDF</p>
-          <div class="cta">
-            <a class="btn btn-primary" href="https://seu-checkout-ou-pagina.com" target="_blank" rel="noopener">Comprar agora</a>
-            <a class="btn btn-ghost" href="#faq">Tirar dúvidas</a>
-          </div>
-          <p class="foot" style="margin-top:10px">Após a compra, você recebe acesso imediato à gravação e aos materiais por e-mail.</p>
-        </div>
-        <div class="card">
-          <h3>Como funciona após a compra</h3>
-          <ul class="list">
-            <li><span class="icon good">📩</span><div>Você recebe por e-mail o acesso à gravação e aos materiais.</div></li>
-            <li><span class="icon good">🤖</span><div>Enviamos seu <strong>GPT personalizado</strong> com comandos prontos.</div></li>
-            <li><span class="icon good">🧑‍💻</span><div>Suporte e acompanhamento para implementar no seu negócio.</div></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="faq" class="sec" style="background:var(--bg-soft)">
-    <div class="container faq">
-      <span class="kicker">Perguntas Frequentes</span>
-      <h2 class="h2">FAQ</h2>
-      <details><summary>1. Esse workshop é ao vivo ou gravado?</summary><p>O workshop foi transmitido ao vivo e agora está disponível em formato gravado, com acesso imediato após a compra.</p></details>
-      <details><summary>2. Preciso saber usar ferramentas de IA?</summary><p>Não! Você receberá um GPT personalizado com comandos simples, prontos para aplicar mesmo se você nunca tiver usado IA antes.</p></details>
-      <details><summary>3. Em quanto tempo verei resultados?</summary><p>Depende da sua aplicação. Muitas alunas começam a estruturar sua comunicação com mais clareza nos primeiros dias, e percebem alívio e agilidade quase imediatos.</p></details>
-      <details><summary>4. Posso usar o que aprendi com minha equipe?</summary><p>Sim! Esse é um dos principais objetivos: te dar base para delegar sem perder a identidade.</p></details>
-      <details><summary>5. Por quanto tempo terei acesso?</summary><p>A gravação e os materiais ficam disponíveis por 12 meses.</p></details>
-      <details><summary>6. Esse workshop serve para mim, mesmo que eu já tenha automações rodando?</summary><p>Sim! Ideal para quem já automatizou algumas partes mas sente que a comunicação perdeu força ou coerência.</p></details>
-    </div>
-  </section>
-
-  <section class="sec">
-    <div class="container">
-      <span class="kicker">Prova Social</span>
-      <h2 class="h2">O que alunas e clientes dizem</h2>
-      <div class="grid-3">
-        <div class="card"><p>“Finalmente consegui delegar a comunicação sem perder a minha voz. O GPT da marca <strong>virou minha assistente</strong>.”<br><em>— Nome, Spa & Wellness</em></p></div>
-        <div class="card"><p>“Automatizamos o agendamento com IA e as respostas ficaram <strong>mais humanas</strong> do que antes.”<br><em>— Nome, Clínica Integrativa</em></p></div>
-        <div class="card"><p>“Economizei horas por semana e ganhei consistência no conteúdo.”<br><em>— Nome, Estúdio Holístico</em></p></div>
-      </div>
-    </div>
-  </section>
-
+  <!-- Sobre / Contato -->
   <section class="sec" style="background:var(--bg-soft)">
     <div class="container cols">
       <div>
         <span class="kicker">Sobre</span>
         <h2 class="h2">Quem conduz o Workshop</h2>
-        <p>Especialista em automação com IA para negócios de Wellness, com foco em comunicação que respeita a essência da marca. <em>(Troque por sua mini-bio, foto e credenciais.)</em></p>
+        <p>Especialista em automação com IA para negócios de Wellness, com foco em comunicação que respeita a essência da marca. <em>(Se desejar, substitua por sua mini-bio, foto e credenciais.)</em></p>
       </div>
       <div>
         <span class="kicker">Contato</span>
         <p class="foot">
-          E-mail: <a href="mailto:contato@suaempresa.com">contato@suaempresa.com</a><br>
-          WhatsApp: <a href="https://wa.me/55SEUNUMERO" target="_blank" rel="noopener">Fale agora</a>
+          E-mail: <a href="mailto:suporte@gruposolinte.com.br">suporte@gruposolinte.com.br</a><br>
+          WhatsApp: <a href="https://w.app/solintedigital" target="_blank" rel="noopener">Fale agora</a>
         </p>
       </div>
     </div>
   </section>
 
+  <!-- CTA Final (principal) -->
+  <section id="contato" class="sec" style="
+    background: radial-gradient(90% 120% at 100% -10%, color-mix(in srgb, var(--accent) 60%, transparent), transparent),
+                radial-gradient(90% 120% at -10% 100%, color-mix(in srgb, var(--sec) 60%, transparent), transparent);
+  ">
+    <div class="container">
+      <span class="kicker">Fale com a Solinte Digital</span>
+      <h2 class="h2">Vamos automatizar seu negócio de Wellness sem perder a essência?</h2>
+      <p class="lead">Tire suas dúvidas e receba o link do workshop + GPT personalizado da sua marca.</p>
+      <div class="cta">
+        <a class="btn btn-primary" href="https://w.app/solintedigital" target="_blank" rel="noopener">Falar no WhatsApp</a>
+        <a class="btn btn-ghost" href="mailto:suporte@gruposolinte.com.br">Ou me envie um e-mail</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sticky CTA -->
   <div class="stickybar" aria-hidden="false">
-    <div class="wrap">Pronta para automatizar com essência? <a href="#comprar">Comprar agora →</a></div>
+    <div class="wrap">Pronta para automatizar com essência? <a href="#contato">Fale comigo →</a></div>
   </div>
 
   <footer>
-    <div class="container foot">© <span id="ano"></span> Sua Marca — Wellness + IA</div>
+    <div class="container foot">© <span id="ano"></span> Solinte Digital — Wellness + IA</div>
   </footer>
 
   <script>
+    // Ano e scroll suave
     document.getElementById('ano').textContent = new Date().getFullYear();
     document.querySelectorAll('a[href^="#"]').forEach(a=>{
       a.addEventListener('click', e=>{
