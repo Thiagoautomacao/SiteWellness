@@ -17,20 +17,13 @@
   <style>
     *,*::before,*::after{box-sizing:border-box}html,body{margin:0;padding:0}
     img{max-width:100%;display:block} a{text-decoration:none}
-
     :root{
-      /* Paleta Wellness: acolhedora e inspiradora */
-      --pri:#2b7c79;        /* teal escuro (acessível) */
-      --pri-600:#2f8d89;
-      --pri-700:#256865;
-      --sec:#d9f2ee;        /* mint/lilás claro p/ fundos */
-      --accent:#e9e3ff;     /* lilás suave */
-      --ink:#0f172a;
-      --muted:#475569;
-      --bg:#ffffff;
-      --bg-soft:#f8fafc;
-      --radius:20px;
-      --shadow:0 12px 40px -24px #0007;
+      /* Mantendo a paleta leve/acolhedora já usada anteriormente */
+      --pri:#2b7c79; --pri-600:#2f8d89; --pri-700:#256865;
+      --sec:#d9f2ee; --accent:#e9e3ff;
+      --ink:#0f172a; --muted:#475569;
+      --bg:#ffffff; --bg-soft:#f8fafc;
+      --radius:20px; --shadow:0 12px 40px -24px #0007;
     }
     body{font-family:ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, "Helvetica Neue", Arial; color:var(--ink); background:var(--bg)}
     .container{max-width:1150px; margin-inline:auto; padding:clamp(16px,4vw,32px)}
@@ -38,13 +31,7 @@
     header{position:sticky; top:0; z-index:50; backdrop-filter:saturate(180%) blur(10px); background:color-mix(in srgb, var(--bg) 85%, transparent); border-bottom:1px solid #e2e8f0}
     .nav{display:flex; align-items:center; justify-content:space-between}
     .brand{display:flex; gap:10px; align-items:center; font-weight:900}
-    .brand .logo{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,#9fe3d8,#cfc8ff); box-shadow:var(--shadow)}
-    /* OPCIONAL: usar uma imagem da sua logo e recolorizar */
-    .brand .logo-img{width:120px; height:auto}
-    /* Recolor via MASK (melhor p/ logo monocromática em PNG/SVG branco com transparência) */
-    .logo-mask{width:140px; height:40px; background:linear-gradient(135deg,#9fe3d8,#cfc8ff); -webkit-mask: url('logo-mask.png') center/contain no-repeat; mask: url('logo-mask.png') center/contain no-repeat;}
-    /* Recolor aproximado via FILTER (para PNG colorida) — ajuste se necessário */
-    .recolor-teal{filter: brightness(0) saturate(100%) invert(36%) sepia(12%) saturate(1200%) hue-rotate(130deg) brightness(88%) contrast(90%);}
+    .brand .logo-img{height:36px; width:auto; border-radius:6px}
     .nav a{color:var(--ink); font-weight:700}
     .navlinks{display:flex; gap:18px; align-items:center}
     .btn{display:inline-flex; align-items:center; justify-content:center; gap:10px; padding:12px 18px; border-radius:14px; font-weight:800; border:1px solid transparent; transition:transform .06s ease}
@@ -92,13 +79,8 @@
   <header>
     <div class="container nav">
       <a class="brand" href="#top" aria-label="Início">
-        <!-- Opção 1 (default): bloco com gradiente -->
-        <span class="logo" aria-hidden="true"></span>
+        <img src="logo-solinte.png" alt="Solinte Digital" class="logo-img">
         <span>Solinte Digital</span>
-        <!-- Opção 2: usar sua logo mascada e recolorizada (substitua o span acima por esta div e coloque um arquivo logo-mask.png) -->
-        <!-- <div class="logo-mask" aria-hidden="true"></div> -->
-        <!-- Opção 3: usar <img> da sua logo e aplicar filtro aproximado (remova o span .logo e descomente) -->
-        <!-- <img src="logo-solinte.png" alt="Solinte Digital" class="logo-img recolor-teal"> -->
       </a>
       <nav class="navlinks" aria-label="Primária">
         <a href="#conteudo">Conteúdo</a>
@@ -192,7 +174,7 @@
     </div>
   </section>
 
-  <!-- Por que funciona (sem o card 4) -->
+  <!-- Por que funciona -->
   <section class="sec" style="background:var(--bg-soft)">
     <div class="container">
       <span class="kicker">Por que isso funciona</span>
@@ -230,7 +212,7 @@
       <div>
         <span class="kicker">Sobre</span>
         <h2 class="h2">Quem conduz o Workshop</h2>
-        <p>Especialista em automação com IA para negócios de Wellness, com foco em comunicação que respeita a essência da marca. <em></em></p>
+        <p>Especialista em automação com IA para negócios de Wellness, com foco em comunicação que respeita a essência da marca. <em>(Se desejar, substitua por sua mini-bio, foto e credenciais.)</em></p>
       </div>
       <div>
         <span class="kicker">Contato</span>
@@ -242,7 +224,7 @@
     </div>
   </section>
 
-  <!-- CTA Final (principal) -->
+  <!-- CTA Final -->
   <section id="contato" class="sec" style="
     background: radial-gradient(90% 120% at 100% -10%, color-mix(in srgb, var(--accent) 60%, transparent), transparent),
                 radial-gradient(90% 120% at -10% 100%, color-mix(in srgb, var(--sec) 60%, transparent), transparent);
@@ -260,7 +242,7 @@
 
   <!-- Sticky CTA -->
   <div class="stickybar" aria-hidden="false">
-    <div class="wrap">Pronta para automatizar com essência? <a href="#contato">Fale conosco →</a></div>
+    <div class="wrap">Pronta para automatizar com essência? <a href="#contato">Fale comigo →</a></div>
   </div>
 
   <footer>
@@ -268,7 +250,6 @@
   </footer>
 
   <script>
-    // Ano e scroll suave
     document.getElementById('ano').textContent = new Date().getFullYear();
     document.querySelectorAll('a[href^="#"]').forEach(a=>{
       a.addEventListener('click', e=>{
