@@ -3,330 +3,230 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Automação sem Perder a Essência — Solinte Digital</title>
-  <meta name="description" content="Automatize atendimento e agendamentos com IA sem perder a essência da sua marca. Comunicação acolhedora para negócios de Wellness.">
+  <title>Solinte Digital — Profissionais da saúde + IA</title>
+  <meta name="description" content="Escalamos profissionais de saúde para +5 dígitos/mês com tráfego pago e automação humanizada.">
   <link rel="icon" href="data:;base64,iVBORw0KGgo=">
-
-  <!-- Open Graph / Social -->
-  <meta property="og:title" content="Automação sem Perder a Essência — Solinte Digital">
-  <meta property="og:description" content="Automatize sem parecer um robô. IA como parceira que cuida, comunica e encanta como você.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://solinte.vercel.app/">
-  <meta property="og:image" content="https://via.placeholder.com/1200x630.png?text=Solinte+Digital+%E2%80%94+Wellness+%2B+IA">
-
   <style>
-    *,*::before,*::after{box-sizing:border-box}html,body{margin:0;padding:0}
+    *,*::before,*::after{box-sizing:border-box} html,body{margin:0;padding:0}
     img{max-width:100%;display:block} a{text-decoration:none}
     :root{
-      /* Mantendo a paleta leve/acolhedora já usada anteriormente */
       --pri:#2b7c79; --pri-600:#2f8d89; --pri-700:#256865;
       --sec:#d9f2ee; --accent:#e9e3ff;
       --ink:#0f172a; --muted:#475569;
       --bg:#ffffff; --bg-soft:#f8fafc;
-      --radius:20px; --shadow:0 12px 40px -24px #0007;
+      --radius:18px; --shadow:0 12px 40px -24px #0007;
     }
     body{font-family:ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, "Helvetica Neue", Arial; color:var(--ink); background:var(--bg)}
-    .container{max-width:1150px; margin-inline:auto; padding:clamp(16px,4vw,32px)}
-    .badge{display:inline-flex; gap:8px; align-items:center; background:var(--sec); border:1px solid #cfe7e3; color:var(--pri-700); padding:8px 12px; border-radius:999px; font-weight:600; font-size:14px}
-    header{position:sticky; top:0; z-index:50; backdrop-filter:saturate(180%) blur(10px); background:color-mix(in srgb, var(--bg) 85%, transparent); border-bottom:1px solid #e2e8f0}
+    .container{max-width:1150px; margin-inline:auto; padding:clamp(14px,3.5vw,24px)}
+    header{position:sticky; top:0; z-index:50; backdrop-filter:saturate(180%) blur(10px); background:#ffffffcc; border-bottom:1px solid #e2e8f0}
     .nav{display:flex; align-items:center; justify-content:space-between}
     .brand{display:flex; gap:10px; align-items:center; font-weight:900}
-    .brand .logo-img{height:36px; width:auto; border-radius:6px}
+    .brand .logo-img{height:34px; width:auto; border-radius:6px}
+    .navlinks{display:flex; gap:16px; align-items:center}
     .nav a{color:var(--ink); font-weight:700}
-    .navlinks{display:flex; gap:18px; align-items:center}
-    .btn{display:inline-flex; align-items:center; justify-content:center; gap:10px; padding:12px 18px; border-radius:14px; font-weight:800; border:1px solid transparent; transition:transform .06s ease}
-    .btn-primary{background:var(--pri); color:#fff; box-shadow:0 8px 30px -12px var(--pri)}
-    .btn-primary:hover{background:var(--pri-600); transform:translateY(-1px)}
+    .btn{display:inline-flex; align-items:center; justify-content:center; gap:10px; padding:11px 16px; border-radius:14px; font-weight:800; border:1px solid transparent; transition:transform .06s ease, box-shadow .2s}
+    .btn-primary{background:var(--pri); color:#fff}
     .btn-ghost{background:transparent; color:var(--ink); border-color:#cbd5e1}
-    .hero{padding:96px 0 64px; background:
+    .hero{padding:56px 0 40px; background:
       radial-gradient(120% 140% at 110% -10%, color-mix(in srgb, var(--accent) 50%, transparent), transparent),
       radial-gradient(120% 140% at -10% 120%, color-mix(in srgb, var(--sec) 60%, transparent), transparent)}
-    .hero h1{font-size: clamp(34px,5vw,62px); line-height:1.05; letter-spacing:-0.02em; margin:14px 0}
-    .lead{font-size:clamp(16px,2.2vw,20px); color:var(--muted); max-width:820px}
-    .cta{display:flex; gap:14px; flex-wrap:wrap; margin-top:24px}
-
-    .sec{padding:64px 0}
-    .kicker{color:var(--pri); font-weight:800; text-transform:uppercase; letter-spacing:.08em; font-size:12px}
-    .h2{font-size:clamp(24px,3vw,36px); letter-spacing:-.02em; margin:.4em 0}
-    .grid-3{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:22px}
+    .hero h1{font-size: clamp(30px,4.4vw,52px); line-height:1.06; letter-spacing:-0.02em; margin:12px 0}
+    .lead{font-size:clamp(16px,2vw,19px); color:var(--muted); max-width:820px}
+    .cta{display:flex; gap:12px; flex-wrap:wrap; margin-top:18px}
+    .sec{padding:40px 0}
+    .h2{font-size:clamp(22px,2.6vw,32px); letter-spacing:-.02em; margin:.3em 0}
+    .grid-3{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px}
     @media (max-width:900px){.grid-3{grid-template-columns:1fr}}
-    .cols{display:grid; gap:22px; grid-template-columns:repeat(2,minmax(0,1fr))}
+    .cols{display:grid; gap:18px; grid-template-columns:repeat(2,minmax(0,1fr))}
     @media (max-width:900px){.cols{grid-template-columns:1fr}}
-    .card{background:var(--bg); border:1px solid #e2e8f0; border-radius:var(--radius); padding:22px; box-shadow:0 8px 30px -18px #0002}
+    .card{background:var(--bg); border:1px solid #e2e8f0; border-radius:var(--radius); padding:18px; box-shadow:0 8px 30px -18px #0002}
     .soft{background:var(--bg-soft)}
-    .list{display:grid; gap:10px; margin:0; padding:0; list-style:none}
+    .list{display:grid; gap:8px; margin:0; padding:0; list-style:none}
     .list li{display:flex; gap:10px; align-items:flex-start}
-    .icon{flex:0 0 22px; height:22px; border-radius:6px; display:inline-grid; place-items:center; font-size:14px}
-    .icon.bad{background:#fee2e2; color:#b91c1c}
-    .icon.good{background:#dcfce7; color:#166534}
-    .pill{display:inline-block; background:#eef2ff; color:#4338ca; padding:6px 10px; border-radius:999px; font-weight:700; font-size:12px}
-    .faq details{border:1px solid #e2e8f0; padding:16px 18px; border-radius:14px; background:var(--bg)}
-    .faq details+details{margin-top:12px}
-    .faq summary{cursor:pointer; font-weight:700}
     .foot{font-size:14px; color:var(--muted)}
-    .stickybar{position:fixed; inset:auto 0 18px; z-index:60; display:flex; justify-content:center; pointer-events:none}
-    .stickybar .wrap{pointer-events:auto; background:var(--ink); color:white; padding:10px 14px; border-radius:999px; box-shadow:0 16px 50px -20px #000a; display:flex; gap:10px; align-items:center}
-    .stickybar a{color:white; font-weight:900; text-decoration:none}
-    footer{padding:48px 0; border-top:1px solid #e2e8f0; background:var(--bg-soft)}
-  
-  /* === Scroll Reveal & Calm Visuals === */
-  .reveal-init{opacity:0; transform:translateY(16px);}
-  .reveal-in{opacity:1; transform:none; transition:opacity .8s ease, transform .8s ease;}
-  .stagger > * { transition:opacity .8s ease, transform .8s ease; }
-  .soft-ambient{position:relative; overflow:hidden}
-  .blob{position:absolute; pointer-events:none; border-radius:50%; filter:blur(40px); opacity:.22; mix-blend-mode:multiply; background:radial-gradient(closest-side, var(--pri) 0%, transparent 70%);}
-  .blob.yellow{background:radial-gradient(closest-side, #facc15 0%, transparent 70%);}
-  .blob.indigo{background:radial-gradient(closest-side, #818cf8 0%, transparent 70%);}
-  .parallax{will-change:transform}
-  @media (prefers-reduced-motion: reduce){
-    .reveal-init{opacity:1; transform:none}
-    .reveal-in{transition:none}
-    .blob{animation:none}
-  }
-
+    .stickybar{position:fixed; inset:auto 0 14px; z-index:60; display:flex; justify-content:center; pointer-events:none}
+    .stickybar .wrap{pointer-events:auto; background:var(--ink); color:white; padding:8px 12px; border-radius:999px; display:flex; gap:10px; align-items:center}
+    footer{padding:36px 0; border-top:1px solid #e2e8f0; background:var(--bg-soft)}
+    .reveal-init{opacity:0; transform:translateY(14px)}
+    .reveal-in{opacity:1; transform:none; transition:opacity .7s ease, transform .7s ease}
   </style>
-
-  <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"Organization","name":"Solinte Digital","url":"https://solinte.vercel.app/","contactPoint":{"@type":"ContactPoint","email":"suporte@gruposolinte.com.br","contactType":"customer support"}}
-  </script>
 </head>
 <body>
-  <!-- Header -->
   <header>
     <div class="container nav">
-      <a class="brand" href="#top" aria-label="Início">
-        <img src="logo-solinte.png" alt="Solinte Digital" class="logo-img">
-        <span>Solinte Digital</span>
-      </a>
+      <a class="brand" href="#top"><img src="logo-solinte.png" alt="Solinte Digital" class="logo-img"> <span>Solinte Digital</span></a>
       <nav class="navlinks" aria-label="Primária">
         <a href="#conteudo">Conteúdo</a>
-        <a href="#solinte">Quem somos</a>
-        <a href="#contato" class="btn btn-primary">Contato</a>
+        <a href="#quem">Quem somos</a>
+        <a href="#contato" class="btn btn-primary js-wa">Contato</a>
       </nav>
     </div>
   </header>
 
-  <!-- Hero -->
-  <section id="top" class="hero soft-ambient">
-      <div class="blob parallax" data-speed="0.15" style="top:-120px; left:-120px; width:360px; height:360px;"></div>
-      <div class="blob yellow parallax" data-speed="0.25" style="bottom:-140px; right:-100px; width:420px; height:420px;"></div>
-
+  <section id="top" class="hero">
     <div class="container">
-      <div class="badge">✨ Workshop exclusivo • Wellness + IA</div>
-      <h1>Automação sem Perder a Essência</h1>
-      <p class="lead">🔹 <strong>Automatize sem parecer um robô</strong><br>
-        Descubra como desbloquear o medo da automação e usar a Inteligência Artificial como uma parceira estratégica que cuida, comunica e encanta como você.</p>
+      <div class="foot">✨Area de Profissionais da saúde + IA</div>
+      <p class="lead">Para profissionais que ajudam pessoas a melhorar a sua saúde, estética, equilíbrio emocional, performance e qualidade de vida. E que também não se limitam apenas à medicina tradicional.</p>
+      <h1>Escalamos profissionais de saúde para + 5 digitos/mês com tráfego pago e automação humanizada.</h1>
+      <p class="lead">Automatize sem Perder a sua Essência e gere seu próprio tráfego pago.</p>
+      <p class="lead">Descubra como desbloquear o medo da automação e usar a Inteligência Artificial como uma parceira estratégica que cuida, comunica e encanta como você. Mais humanizada! </p>
+      <p class="lead">E, potencialize com o tráfego pago para o seu nicho.</p>
       <div class="cta">
-        <a class="btn btn-primary" href="#contato">Falar com a Solinte</a>
+        <a class="btn btn-primary js-wa" href="https://w.app/solintedigital" target="_blank" rel="noopener">Falar com a Solinte</a>
         <a class="btn btn-ghost" href="#conteudo">Ver o que vou receber</a>
       </div>
     </div>
   </section>
 
-  <!-- Dor/afinidade -->
-  <section class="sec">
+  <section id="familiar" class="sec">
     <div class="container">
-      <span class="kicker">Isso te parece familiar?</span>
-      <h2 class="h2">Se respondeu “sim” para alguma dessas... este workshop é pra você.</h2>
-      <div class="grid-3">
-        <div class="card">
-          <ul class="list">
-            <li><span class="icon bad">❌</span><div>Sente que a comunicação da sua marca depende 100% de você?</div></li>
-            <li><span class="icon bad">❌</span><div>Tenta automatizar, mas sente que tudo fica genérico ou impessoal?</div></li>
-            <li><span class="icon bad">❌</span><div>Sua equipe não consegue “falar como você” nas redes ou atendimentos?</div></li>
-            <li><span class="icon bad">❌</span><div>Acha que usar IA vai deixar sua marca robótica, fria ou igual a todo mundo?</div></li>
-          </ul>
-        </div>
-        <div class="card soft">
-          <span class="pill">Antes do Workshop...</span>
-          <p>Você sentia que tudo dependia de você: desde a criação de conteúdo até o tom usado em cada mensagem enviada. Qualquer tentativa de automatizar parecia distanciar sua marca daquilo que você construiu com tanto cuidado.</p>
-        </div>
-        <div class="card soft">
-          <span class="pill" style="background:#ecfeff; color:#0e7490">Depois do Workshop...</span>
-          <p>Você entende sua linguagem com clareza e estrutura. Agora, tem ferramentas para manter sua comunicação alinhada e presente — mesmo sem precisar estar em cada detalhe. A IA entra como apoio, e não como ameaça.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- O que você vai receber / fazer -->
-  <section id="conteudo" class="sec" style="background:var(--bg-soft)">
-    <div class="container">
-      <span class="kicker">O que você vai receber</span>
-      <h2 class="h2">Tudo que precisa para implementar já</h2>
-      <div class="cols">
-        <div class="card">
-          <ul class="list">
-            <li><span class="icon good">✅</span><div>Um workshop <strong>ao vivo gravado</strong> com a metodologia completa.</div></li>
-            <li><span class="icon good">✅</span><div><strong>Passo a passo</strong> de como construir o seu próprio agente de IA personalizado.</div></li>
-            <li><span class="icon good">✅</span><div><strong>Suporte e Acompanhamento</strong> integral por especialistas.</div></li>
-            <li><span class="icon good">✅</span><div>Materiais prontos para aplicação.</div></li>
-            <li><span class="icon good">✅</span><div>Prompts de comportamento e Treinamento prontos e aprovados.</div></li>
-            <li><span class="icon good">✅</span><div>Outras soluções sob medida para o seu negócio.</div></li>
-          </ul>
-        </div>
-        <div class="card">
-          <span class="kicker">O que você vai conseguir fazer</span>
-          <ul class="list" style="margin-top:10px">
-            <li><span class="icon good">📊</span><div>Estruturar sua linguagem de marca com clareza</div></li>
-            <li><span class="icon good">🧭</span><div>Usar IA com confiança e direção</div></li>
-            <li><span class="icon good">🤝</span><div>Delegar para equipe ou ferramenta com segurança</div></li>
-            <li><span class="icon good">⚙️</span><div>Automatizar funis e conteúdos sem parecer genérico</div></li>
-            <li><span class="icon good">🕒</span><div>Otimizar o seu tempo e o da equipe</div></li>
-            <li><span class="icon good">🚀</span><div>Entrar de vez na nova era do mercado com IA a seu favor</div></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Para quem é -->
-  <section class="sec">
-    <div class="container">
-      <span class="kicker">Para quem é</span>
-      <h2 class="h2">Para mulheres visionárias que lideram com o coração 💜</h2>
-      <div class="grid-3">
-        <div class="card"><p>Se envolve em cada detalhe da comunicação e quer que sua marca seja bem representada — por você, equipe ou IA.</p></div>
-        <div class="card"><p>Já tentou automatizar, mas não se viu ali — e quer <strong>estrutura</strong> para manter a mensagem firme.</p></div>
-        <div class="card"><p>Quer crescer com leveza, profissionalismo e coerência — perto, mas <strong>não mais sozinha</strong>.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Por que funciona -->
-  <section class="sec" style="background:var(--bg-soft)">
-    <div class="container">
-      <span class="kicker">Por que isso funciona</span>
-      <h2 class="h2">Exatamente o que faltava para destravar a automação</h2>
-      <div class="grid-3">
-        <div class="card"><h3>1) Aplicável, não só inspirador</h3><p>Você sai com <strong>estrutura pronta</strong> + ferramenta configurada para você.</p></div>
-        <div class="card"><h3>2) Evita retrabalho</h3><p>Sua equipe e IA passam a <strong>falar como você</strong>, com menos idas e voltas.</p></div>
-        <div class="card"><h3>3) Libera sua agenda</h3><p>Comunicação <strong>delegável</strong> sem perder identidade.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- QUEM SOMOS NÓS? (Solinte Digital) -->
-  <section id="solinte" class="sec" style="background:var(--sec)">
-    <div class="container cols">
-      <div>
-        <span class="kicker">Quem somos nós</span>
-        <h2 class="h2">Solinte Digital — Soluções Inteligentes para negócios</h2>
-        <p>A Solinte Digital é focada em criar e desenvolver soluções com Inteligência Artificial para empresários que enxergam o futuro. Desde 2020, ajudamos a escalar os negócios de nossos parceiros e a fortalecer sua presença no meio digital. Nossa CEO, <strong>Karine Irigoite</strong>, é uma experiente gestora e empresária dedicada a parcerias que agregam valor para empresas e novos negócios.</p>
-      </div>
+      <h2 class="h2">Isso te parece familiar?</h2>
+      <p>Se respondeu “sim” para alguma dessas… esta automação é pra você.</p>
       <div class="card">
         <ul class="list">
-          <li><span class="icon good">🤝</span><div>Parcerias de longo prazo e foco em resultado</div></li>
-          <li><span class="icon good">⚙️</span><div>Automação com IA sob medida para sua realidade</div></li>
-          <li><span class="icon good">📈</span><div>Escala com leveza: processos + marca consistente</div></li>
-          <li><span class="icon good">🌱</span><div>Abordagem humana, acolhedora e alinhada ao Wellness</div></li>
+          <li>❌ Sente que a comunicação da sua marca depende 100 % de você?</li>
+          <li>❌ Tenta automatizar, mas sente que tudo fica genérico ou impessoal?</li>
+          <li>❌ Seu potencial cliente não consegue “falar como você” nas redes ou nos canais de atendimento na hora que ele chega?</li>
+          <li>❌ Acha que usar IA vai deixar sua marca robótica, fria ou igual a todo mundo?</li>
         </ul>
       </div>
     </div>
   </section>
 
-  <!-- Sobre / Contato -->
-  <section class="sec" style="background:var(--bg-soft)">
-    <div class="container cols">
-      <div>
-        <span class="kicker">Sobre</span>
-        <h2 class="h2">Quem conduz o Workshop</h2>
-        <p>Especialista em automação com IA para negócios de Wellness, com foco em comunicação que respeita a essência da marca. <em></em></p>
-      </div>
-      <div>
-        <span class="kicker">Contato</span>
-        <p class="foot">
-          E-mail: <a href="mailto:suporte@gruposolinte.com.br">suporte@gruposolinte.com.br</a><br>
-          WhatsApp: <a href="https://w.app/solintedigital" target="_blank" rel="noopener">Fale agora</a>
-        </p>
-      </div>
+  <section id="antes" class="sec soft">
+    <div class="container">
+      <h2 class="h2">Antes de conhecer esta solução…</h2>
+      <p>Você sentia que tudo dependia de você: desde a criação de conteúdo, o atendimento, a conquista de potenciais clientes, até o tom usado em cada mensagem enviada. </p>
+      <p>Qualquer tentativa de automatizar parecia distanciar sua marca daquilo que você construiu com tanto cuidado.</p>
     </div>
   </section>
 
-  <!-- CTA Final -->
-  <section id="contato" class="sec soft-ambient" style="
-    background: radial-gradient(90% 120% at 100% -10%, color-mix(in srgb, var(--accent) 60%, transparent), transparent),
-                radial-gradient(90% 120% at -10% 100%, color-mix(in srgb, var(--sec) 60%, transparent), transparent);
-  ">
-      <div class="blob indigo parallax" data-speed="0.2" style="top:-80px; right:-120px; width:340px; height:340px;"></div>
-      <div class="blob yellow parallax" data-speed="0.1" style="bottom:-120px; left:-100px; width:380px; height:380px;"></div>
-
+  <section id="depois" class="sec">
     <div class="container">
-      <span class="kicker">Fale com a Solinte Digital</span>
-      <h2 class="h2">Vamos automatizar seu negócio de Wellness sem perder a essência?</h2>
-      <p class="lead">Tire suas dúvidas e receba o link do workshop + GPT personalizado da sua marca.</p>
+      <h2 class="h2">Depois da implementação …</h2>
+      <p>Você vai ver sua linguagem com clareza e estrutura. Agora, tem ferramentas para manter sua comunicação alinhada e presente — mesmo sem precisar estar em cada detalhe. A IA entra como apoio, e não como ameaça. E o tráfego agora, tem uma aliada quando os potenciais clientes chegam até você. </p>
+    </div>
+  </section>
+
+  <section id="conteudo" class="sec soft">
+    <div class="container">
+      <h2 class="h2">O que você vai receber</h2>
+      <p>Existem 03 opções para você chegar a faturar mais de 5k mês já:</p>
+      <div class="card"><p>Uma Automação feita diretamente pela minha equipe com o tráfego pago implementado junto. Aqui você terá suporte e acompanhamento integral da minha equipe.</p></div>
+      <div class="card" style="margin-top:10px"><p>Passo a passo de como construir o seu próprio agente de IA personalizado e como potencializar seu tráfego pago para ele. Aqui você receberá os materiais prontos para aplicação.Prompts de comportamento e Treinamento prontos e aprovados.</p></div>
+      <div class="card" style="margin-top:10px"><p>Outras soluções sob medida para o seu negócio.</p></div>
+    </div>
+  </section>
+
+  <section id="fazer" class="sec">
+    <div class="container">
+      <h2 class="h2">O que você vai conseguir fazer</h2>
+      <ul class="list">
+        <li>Usar IA com confiança e direção</li>
+        <li>Automatizar funis e conteúdo sem parecer genérico</li>
+        <li>Otimizar o seu tempo e o da equipe</li>
+        <li>Entrar de vez na nova era do mercado com IA e tráfego pago a seu favor</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="paraquem" class="sec soft">
+    <div class="container">
+      <h2 class="h2">Para quem é</h2>
+      <ul class="list">
+        <li>Para mulheres visionárias que lideram com o coração</li>
+        <li>Se envolve em cada detalhe da comunicação e quer que sua marca seja bem representada — por você, equipe ou IA.</li>
+        <li>Já tentou automatizar, mas não se viu ali — e quer estrutura para manter a mensagem firme.</li>
+        <li>Quer crescer com leveza, profissionalismo e coerência — perto, mas não mais sozinha.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="porque" class="sec">
+    <div class="container">
+      <h2 class="h2">Por que isso funciona</h2>
+      <h3 class="h2" style="font-size:20px">Aplicável, sem retrabalho e libertador</h3>
+      <div class="card"><p><strong>1) Aplicável, não só inspirador</strong><br>Você sai com estrutura pronta + ferramenta configurada para você. Ou feita pelos nossos especialistas ou feita por você mesma através de nossa aula com um passo a passo.</p></div>
+      <div class="card" style="margin-top:10px"><p><strong>2) Evita retrabalho</strong><br>Sua equipe e a IA passam a falar como você, com menos idas e voltas.</p></div>
+      <div class="card" style="margin-top:10px"><p><strong>3) Libera sua agenda</strong><br>Comunicação delegável sem perder identidade. Assim como você a IA agora também pode te ajudar a marcar consultas e agendamentos sem esquecer de ninguém. </p></div>
+    </div>
+  </section>
+
+  <section id="quem" class="sec soft">
+    <div class="container">
+      <h2 class="h2">Quem somos nós</h2>
+      <h3 class="h2" style="font-size:20px">Solinte Digital — Soluções Inteligentes para negócios na internet</h3>
+      <p>A Solinte Digital é focada em criar e desenvolver soluções com Inteligência Artificial para empresários que enxergam o futuro. Desde 2018, ajudamos a escalar os negócios de nossos parceiros e a fortalecer sua presença no meio digital. Nossa CEO, Karine Irigoite, é uma experiente gestora e empresária dedicada a parcerias que agregam valor para empresas e novos negócios.</p>
+      <ul class="list">
+        <li>Parcerias de longo prazo e foco em resultado</li>
+        <li>Automação com IA sob medida para sua realidade</li>
+        <li>Escala com leveza: processos + marca consistente</li>
+        <li>Abordagem humana, acolhedora e alinhada aos Profissionais da saúde</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="sobre" class="sec">
+    <div class="container">
+      <h2 class="h2">Sobre</h2>
+      <h3 class="h2" style="font-size:20px">Quem conduz a expertise dos Agentes de IA e do Tráfego Pago</h3>
+      <p>Especialista em automação com IA para negócios de Profissionais da saúde, com foco em comunicação que respeita a essência da marca e agrega valor.</p>
+    </div>
+  </section>
+
+  <section id="contato" class="sec soft">
+    <div class="container">
+      <h2 class="h2">Contato</h2>
+      <p><strong>E-mail:</strong> <a href="mailto:suporte@gruposolinte.com.br">suporte@gruposolinte.com.br</a></p>
+      <p><strong>WhatsApp:</strong> <a class="js-wa" href="https://w.app/solintedigital" target="_blank" rel="noopener">Fale agora</a></p>
+    </div>
+  </section>
+
+  <section id="nichos" class="sec">
+    <div class="container">
+      <h2 class="h2">Fale com a Solinte Digital</h2>
+      <h3 class="h2" style="font-size:20px">Vamos automatizar seu negócio de Profissionais da saúde sem perder a essência?</h3>
+      <p>Tire suas dúvidas conosco se você estiver nestas áreas:</p>
+      <ul class="list">
+        <li>Saúde Integrada & Mental — Psicologia, terapias holísticas, meditação, coaching de vida, inteligência emocional</li>
+        <li>Fitness & Performance — Personal training, yoga, pilates, crossfit, treinos online, preparação esportiva</li>
+        <li>Nutrição & Saúde Preventiva — Nutricionistas, nutrologia, alimentação saudável, suplementos, programas detox</li>
+        <li>Beleza, Estética & Autocuidado — Clínicas de estética, dermatologia, massoterapia, spas, clean beauty</li>
+        <li>Turismo & Experiências — Retiros de yoga, viagens de bem-estar, resorts/spas, contato com a natureza</li>
+        <li>Lifestyle & Ambiente Saudável — Arquitetura biofílica, sustentabilidade, produtos naturais, tecnologia de bem-estar</li>
+        <li>Medicina & Terapias Avançadas — Medicina funcional, quiropraxia, acupuntura, ayurveda, terapias anti-aging</li>
+      </ul>
       <div class="cta">
-        <a class="btn btn-primary" href="https://w.app/solintedigital" target="_blank" rel="noopener">Falar no WhatsApp</a>
+        <a class="btn btn-primary js-wa" href="https://w.app/solintedigital" target="_blank" rel="noopener">Falar no WhatsApp</a>
         <a class="btn btn-ghost" href="mailto:suporte@gruposolinte.com.br">Ou nos envie um e-mail</a>
       </div>
     </div>
   </section>
 
-  <!-- Sticky CTA -->
   <div class="stickybar" aria-hidden="false">
-    <div class="wrap">Pronta para automatizar com essência? <a href="#contato">Fale conosco →</a></div>
+    <div class="wrap">Pronta para automatizar com essência? <a class="js-wa" href="https://w.app/solintedigital" target="_blank" rel="noopener">Fale conosco →</a></div>
   </div>
 
   <footer>
-    <div class="container foot">© <span id="ano"></span> Solinte Digital — Wellness + IA</div>
+    <div class="container foot">© <span id="ano"></span> Solinte Digital — Profissionais da saúde + IA</div>
   </footer>
 
   <script>
     document.getElementById('ano').textContent = new Date().getFullYear();
-    document.querySelectorAll('a[href^="#"]').forEach(a=>{
-      a.addEventListener('click', e=>{
-        const id = a.getAttribute('href');
-        const el = document.querySelector(id);
-        if(el){ e.preventDefault(); el.scrollIntoView({behavior:'smooth', block:'start'}); }
-      });
-    });
+    (function(){
+      const pr = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const els = [...document.querySelectorAll('h1,.h2,.lead,.card,section p,ul.list li,.cta')];
+      if(!pr){
+        els.forEach((el,i)=>{ el.classList.add('reveal-init'); el.style.transitionDelay=(Math.min(i,10)*40)+'ms'; });
+        const io = new IntersectionObserver(entries=>{
+          entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('reveal-in'); io.unobserve(e.target);} });
+        }, {threshold:.12, rootMargin:'0px 0px -8% 0px'});
+        els.forEach(el=>io.observe(el));
+      }
+    })();
   </script>
-<script>
 
-    // === Scroll Reveal ===
-    (function(){
-      const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      const candidates = Array.from(document.querySelectorAll('h1, .h2, .lead, .card, .grid-3 > *, .cols > *, .kicker, .cta, section .badge, section p'));
-      if(!prefersReduced){
-        candidates.forEach((el,i)=>{
-          el.classList.add('reveal-init');
-          el.style.transitionDelay = (Math.min(i,8)*60)+'ms';
-        });
-        const io = new IntersectionObserver((entries)=>{
-          entries.forEach(e=>{
-            if(e.isIntersecting){
-              e.target.classList.add('reveal-in');
-              io.unobserve(e.target);
-            }
-          });
-        },{threshold:0.12, rootMargin:'0px 0px -10% 0px'});
-        candidates.forEach(el=>io.observe(el));
-      }
-    })();
-
-    // === Parallax for ambient blobs ===
-    (function(){
-      const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      if(prefersReduced) return;
-      const items = Array.from(document.querySelectorAll('.parallax'));
-      let ticking=false;
-      function onScroll(){
-        if(!ticking){
-          window.requestAnimationFrame(()=>{
-            const y = window.scrollY || window.pageYOffset;
-            items.forEach(el=>{
-              const speed = parseFloat(el.dataset.speed || '0.15');
-              el.style.transform = `translate3d(0, ${Math.round(y*speed)}px, 0)`;
-            });
-            ticking=false;
-          });
-          ticking=true;
-        }
-      }
-      onScroll();
-      window.addEventListener('scroll', onScroll, {passive:true});
-    })();
-
-</script>
+  <script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments)};</script>
+  <script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>
