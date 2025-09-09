@@ -4,8 +4,15 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Solinte Digital — Profissionais da saúde + IA</title>
-  <meta name="description" content="Escalamos profissionais de saúde para +5 dígitos/mês com tráfego pago e automação humanizada.">
+  <meta name="description" content="Automação humanizada + tráfego pago para Profissionais da saúde. Ganhe escala sem perder a essência da marca.">
   <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Solinte Digital — Profissionais da saúde + IA">
+  <meta property="og:description" content="Automação humanizada + tráfego pago para Profissionais da saúde.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://via.placeholder.com/1200x630.png?text=Solinte+Digital">
+
   <style>
     *,*::before,*::after{box-sizing:border-box} html,body{margin:0;padding:0}
     img{max-width:100%;display:block} a{text-decoration:none}
@@ -14,219 +21,368 @@
       --sec:#d9f2ee; --accent:#e9e3ff;
       --ink:#0f172a; --muted:#475569;
       --bg:#ffffff; --bg-soft:#f8fafc;
-      --radius:18px; --shadow:0 12px 40px -24px #0007;
+      --radius:20px; --shadow:0 12px 40px -24px #0007;
+      --ring:#94a3b8;
     }
     body{font-family:ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, "Helvetica Neue", Arial; color:var(--ink); background:var(--bg)}
-    .container{max-width:1150px; margin-inline:auto; padding:clamp(14px,3.5vw,24px)}
-    header{position:sticky; top:0; z-index:50; backdrop-filter:saturate(180%) blur(10px); background:#ffffffcc; border-bottom:1px solid #e2e8f0}
+    .container{max-width:1180px; margin-inline:auto; padding:clamp(16px,4vw,32px)}
+    .kicker{color:var(--pri); font-weight:800; text-transform:uppercase; letter-spacing:.08em; font-size:12px}
+    .h1{font-size:clamp(36px,6vw,68px); letter-spacing:-.02em; line-height:1.05}
+    .h2{font-size:clamp(24px,3.2vw,40px); letter-spacing:-.02em; line-height:1.15; margin:.3em 0}
+    .lead{font-size:clamp(16px,2.2vw,20px); color:var(--muted); max-width:840px}
+    .sec{padding:56px 0}
+    .soft{background:var(--bg-soft)}
+    .grid-3{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:22px}
+    .grid-2{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:22px}
+    @media (max-width:900px){.grid-3,.grid-2{grid-template-columns:1fr}}
+    .card{background:rgba(255,255,255,.85); border:1px solid #e2e8f0; border-radius:var(--radius); padding:22px; box-shadow:0 12px 32px -20px #0003; backdrop-filter:saturate(130%) blur(6px)}
+    .chip{display:inline-flex; align-items:center; gap:8px; padding:6px 10px; border-radius:999px; background:#eef2ff; color:#3730a3; font-weight:700; font-size:12px}
+    .list{margin:0; padding-left:18px}
+    .list li{margin:.35em 0}
+    .muted{color:var(--muted)}
+    .cta{display:flex; gap:14px; flex-wrap:wrap; margin-top:22px}
+    .btn{display:inline-flex; align-items:center; justify-content:center; gap:10px; padding:12px 18px; border-radius:14px; font-weight:800; border:1px solid transparent; transition:transform .06s ease, box-shadow .2s}
+    .btn:focus-visible{outline:2px solid transparent; box-shadow:0 0 0 3px var(--ring)}
+    .btn-primary{background:var(--pri); color:#fff; box-shadow:0 10px 32px -16px var(--pri)}
+    .btn-primary:hover{transform:translateY(-1px); background:var(--pri-600)}
+    .btn-ghost{background:transparent; color:var(--ink); border-color:#cbd5e1}
+    header{position:sticky; top:0; z-index:50; backdrop-filter:saturate(180%) blur(10px); background:color-mix(in srgb, var(--bg) 85%, transparent); border-bottom:1px solid #e2e8f0}
     .nav{display:flex; align-items:center; justify-content:space-between}
     .brand{display:flex; gap:10px; align-items:center; font-weight:900}
-    .brand .logo-img{height:34px; width:auto; border-radius:6px}
-    .navlinks{display:flex; gap:16px; align-items:center}
-    .nav a{color:var(--ink); font-weight:700}
-    .btn{display:inline-flex; align-items:center; justify-content:center; gap:10px; padding:11px 16px; border-radius:14px; font-weight:800; border:1px solid transparent; transition:transform .06s ease, box-shadow .2s}
-    .btn-primary{background:var(--pri); color:#fff}
-    .btn-ghost{background:transparent; color:var(--ink); border-color:#cbd5e1}
-    .hero{padding:56px 0 40px; background:
+    .brand .logo-img{height:36px; width:auto; border-radius:6px}
+    .navlinks{display:flex; gap:18px; align-items:center}
+    footer{padding:48px 0; border-top:1px solid #e2e8f0; background:var(--bg-soft)}
+
+    /* Hero */
+    .hero{padding:96px 0 64px; position:relative; overflow:hidden; background:
       radial-gradient(120% 140% at 110% -10%, color-mix(in srgb, var(--accent) 50%, transparent), transparent),
       radial-gradient(120% 140% at -10% 120%, color-mix(in srgb, var(--sec) 60%, transparent), transparent)}
-    .hero h1{font-size: clamp(30px,4.4vw,52px); line-height:1.06; letter-spacing:-0.02em; margin:12px 0}
-    .lead{font-size:clamp(16px,2vw,19px); color:var(--muted); max-width:820px}
-    .cta{display:flex; gap:12px; flex-wrap:wrap; margin-top:18px}
-    .sec{padding:40px 0}
-    .h2{font-size:clamp(22px,2.6vw,32px); letter-spacing:-.02em; margin:.3em 0}
-    .grid-3{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px}
-    @media (max-width:900px){.grid-3{grid-template-columns:1fr}}
-    .cols{display:grid; gap:18px; grid-template-columns:repeat(2,minmax(0,1fr))}
-    @media (max-width:900px){.cols{grid-template-columns:1fr}}
-    .card{background:var(--bg); border:1px solid #e2e8f0; border-radius:var(--radius); padding:18px; box-shadow:0 8px 30px -18px #0002}
-    .soft{background:var(--bg-soft)}
-    .list{display:grid; gap:8px; margin:0; padding:0; list-style:none}
-    .list li{display:flex; gap:10px; align-items:flex-start}
-    .foot{font-size:14px; color:var(--muted)}
-    .stickybar{position:fixed; inset:auto 0 14px; z-index:60; display:flex; justify-content:center; pointer-events:none}
-    .stickybar .wrap{pointer-events:auto; background:var(--ink); color:white; padding:8px 12px; border-radius:999px; display:flex; gap:10px; align-items:center}
-    footer{padding:36px 0; border-top:1px solid #e2e8f0; background:var(--bg-soft)}
-    .reveal-init{opacity:0; transform:translateY(14px)}
-    .reveal-in{opacity:1; transform:none; transition:opacity .7s ease, transform .7s ease}
+    .hero .grid{display:grid; grid-template-columns:1.1fr .9fr; gap:28px}
+    @media (max-width:950px){.hero .grid{grid-template-columns:1fr}}
+
+    .highlight{display:inline-grid; place-items:center; padding:8px 12px; background:#ffffffa8; border:1px solid #e2e8f0; border-radius:999px; font-weight:800; width:max-content; backdrop-filter:blur(6px)}
+    .rotator{display:inline-block; min-width:12ch; white-space:nowrap; position:relative}
+    .rotator > span{position:absolute; inset:0; opacity:0; transform:translateY(10px); animation:rotateWords 9s infinite}
+    .rotator > span:nth-child(1){animation-delay:0s}
+    .rotator > span:nth-child(2){animation-delay:3s}
+    .rotator > span:nth-child(3){animation-delay:6s}
+    @keyframes rotateWords{
+      0%{opacity:0; transform:translateY(10px)}
+      4%{opacity:1; transform:translateY(0)}
+      30%{opacity:1; transform:translateY(0)}
+      34%{opacity:0; transform:translateY(-6px)}
+      100%{opacity:0}
+    }
+    @media (prefers-reduced-motion: reduce){
+      .rotator > span{position:static; opacity:1; transform:none; animation:none; display:block}
+    }
+
+    /* Tabs (3 opções) */
+    .tabs{display:flex; gap:8px; flex-wrap:wrap; background:#f1f5f9; border:1px solid #e2e8f0; padding:8px; border-radius:999px; width:max-content}
+    .tab{padding:8px 12px; border-radius:999px; font-weight:800; cursor:pointer}
+    .tab[aria-selected="true"]{background:var(--pri); color:#fff}
+    .tabpanel{display:none}
+    .tabpanel[aria-hidden="false"]{display:block}
+
+    /* Comparison slider */
+    .compare{position:relative; border-radius:var(--radius); overflow:hidden; border:1px solid #e2e8f0; background:#fff; box-shadow:0 10px 34px -22px #0005}
+    .compare .pane{padding:20px}
+    .compare .after{position:absolute; inset:0 auto 0 0; width:50%; border-right:2px dashed #0f172a33; background:linear-gradient(0deg,#fff, #fff)}
+    .compare .label{position:absolute; top:10px; left:10px; background:#0f172a; color:#fff; font-size:12px; padding:4px 8px; border-radius:999px}
+    .compare .label.after{left:auto; right:10px; background:var(--pri)}
+    .compare input[type="range"]{position:absolute; inset:auto 0 0 0; width:100%; -webkit-appearance:none; appearance:none; background:transparent}
+    .compare input[type="range"]::-webkit-slider-thumb{ -webkit-appearance:none; appearance:none; width:20px; height:20px; border-radius:50%; background:var(--pri); border:2px solid #fff; box-shadow:0 2px 10px #0004}
+    .compare input[type="range"]::-moz-range-thumb{ width:20px; height:20px; border-radius:50%; background:var(--pri); border:2px solid #fff }
+    @media (prefers-reduced-motion: reduce){ .compare input[type="range"]{display:none} }
+
+    /* FAQ */
+    .faq details{border:1px solid #e2e8f0; padding:16px 18px; border-radius:14px; background:#fff}
+    .faq details+details{margin-top:12px}
+    .faq summary{cursor:pointer; font-weight:800}
+
+    /* Calm blobs */
+    .blob{position:absolute; pointer-events:none; border-radius:50%; filter:blur(42px); opacity:.22; mix-blend-mode:multiply; background:radial-gradient(closest-side, var(--pri) 0%, transparent 70%);}
+    .blob.yellow{background:radial-gradient(closest-side, #facc15 0%, transparent 70%);}
+    .blob.indigo{background:radial-gradient(closest-side, #818cf8 0%, transparent 70%);}
+    .parallax{will-change:transform}
+
+    .stickybar{position:fixed; inset:auto 0 18px; z-index:60; display:flex; justify-content:center; pointer-events:none}
+    .stickybar .wrap{pointer-events:auto; background:#0f172a; color:white; padding:10px 14px; border-radius:999px; box-shadow:0 16px 50px -20px #000a; display:flex; gap:10px; align-items:center}
+
+    /* Scroll reveal */
+    .reveal-init{opacity:0; transform:translateY(16px)}
+    .reveal-in{opacity:1; transform:none; transition:opacity .8s ease, transform .8s ease}
+    @media (prefers-reduced-motion: reduce){ .reveal-init{opacity:1; transform:none} .reveal-in{transition:none} }
   </style>
 </head>
 <body>
+  <!-- Header -->
   <header>
     <div class="container nav">
       <a class="brand" href="#top"><img src="logo-solinte.png" alt="Solinte Digital" class="logo-img"> <span>Solinte Digital</span></a>
       <nav class="navlinks" aria-label="Primária">
-        <a href="#conteudo">Conteúdo</a>
-        <a href="#quem">Quem somos</a>
+        <a href="#como-funciona">Como funciona</a>
+        <a href="#resultados">Resultados</a>
+        <a href="#faq">FAQ</a>
         <a href="#contato" class="btn btn-primary js-wa">Contato</a>
       </nav>
     </div>
   </header>
 
+  <!-- Hero com rotator e ilustração -->
   <section id="top" class="hero">
-    <div class="container">
-      <div class="foot">✨Area de Profissionais da saúde + IA</div>
-      <p class="lead">Para profissionais que ajudam pessoas a melhorar a sua saúde, estética, equilíbrio emocional, performance e qualidade de vida. E que também não se limitam apenas à medicina tradicional.</p>
-      <h1>Escalamos profissionais de saúde para + 5 digitos/mês com tráfego pago e automação humanizada.</h1>
-      <p class="lead">Automatize sem Perder a sua Essência e gere seu próprio tráfego pago.</p>
-      <p class="lead">Descubra como desbloquear o medo da automação e usar a Inteligência Artificial como uma parceira estratégica que cuida, comunica e encanta como você. Mais humanizada! </p>
-      <p class="lead">E, potencialize com o tráfego pago para o seu nicho.</p>
-      <div class="cta">
-        <a class="btn btn-primary js-wa" href="https://w.app/solintedigital" target="_blank" rel="noopener">Falar com a Solinte</a>
-        <a class="btn btn-ghost" href="#conteudo">Ver o que vou receber</a>
+    <div class="blob parallax" data-speed="0.15" style="top:-120px; left:-140px; width:360px; height:360px;"></div>
+    <div class="blob yellow parallax" data-speed="0.25" style="bottom:-160px; right:-120px; width:440px; height:440px;"></div>
+    <div class="container grid">
+      <div>
+        <div class="highlight">✨ Área de Profissionais da saúde + IA</div>
+        <h1 class="h1" style="margin-top:12px">
+          Escalamos profissionais de saúde para <span class="rotator"><span>+5 dígitos/mês</span><span>agenda cheia</span><span>processos leves</span></span>
+        </h1>
+        <p class="lead">Automação <strong>humanizada</strong> + <strong>tráfego pago</strong> para você ganhar escala sem perder a essência. IA como parceira estratégica que cuida, comunica e encanta como você.</p>
+        <div class="cta">
+          <a class="btn btn-primary js-wa" href="https://w.app/solintedigital?utm_source=site&utm_medium=cta&utm_campaign=lp_workshop&utm_content=hero&text=Quero%20falar%20com%20a%20Solinte" target="_blank" rel="noopener">Falar no WhatsApp</a>
+          <a class="btn btn-ghost" href="#como-funciona">Ver como funciona</a>
+        </div>
+        <div class="muted" style="margin-top:10px">Atendemos clínicas, consultórios, estética, nutrição, psicologia, pilates, yoga e mais.</div>
+      </div>
+      <div class="card" aria-hidden="true">
+        <div class="chip">Exemplo do seu agente</div>
+        <p class="muted" style="margin-top:8px">Conversa acolhedora • Respostas em &lt;3 min • Guia de linguagem aplicado</p>
+        <div class="compare" style="margin-top:12px">
+          <div class="label">Antes</div>
+          <div class="pane">
+            <ul class="list">
+              <li>Respostas lentas e inconsistentes</li>
+              <li>Dependência 100% de você</li>
+              <li>Mensagens genéricas (perda de identidade)</li>
+            </ul>
+          </div>
+          <div class="after" id="after-pane">
+            <div class="label after">Depois</div>
+            <div class="pane">
+              <ul class="list">
+                <li>Atendimento em &lt;3 min com tom humano</li>
+                <li>Equipe e IA falando como você</li>
+                <li>Fluxos: agendar, lembrar, reativar, pós</li>
+              </ul>
+            </div>
+          </div>
+          <input id="slider" type="range" min="0" max="100" value="50" aria-label="Ajustar comparação Antes/Depois">
+        </div>
       </div>
     </div>
   </section>
 
-  <section id="familiar" class="sec">
+  <!-- Como funciona: 5 passos com tabs de opções -->
+  <section id="como-funciona" class="sec soft">
     <div class="container">
-      <h2 class="h2">Isso te parece familiar?</h2>
-      <p>Se respondeu “sim” para alguma dessas… esta automação é pra você.</p>
+      <span class="kicker">Como funciona</span>
+      <h2 class="h2">Automação sem perder a essência — em 5 passos</h2>
+      <div class="grid-5" style="display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:16px">
+        <div class="card reveal-init"><strong>Essência</strong><br><span class="muted">Voz, valores e limites</span></div>
+        <div class="card reveal-init"><strong>Linguagem</strong><br><span class="muted">Guia prático de tom & estilo</span></div>
+        <div class="card reveal-init"><strong>Agente</strong><br><span class="muted">Comportamentos e prompts</span></div>
+        <div class="card reveal-init"><strong>Fluxos</strong><br><span class="muted">Atendimento, no‑show, pós, reativação</span></div>
+        <div class="card reveal-init"><strong>Acompanhamento</strong><br><span class="muted">Ajustes com métricas reais</span></div>
+      </div>
+
+      <div class="card" style="margin-top:20px">
+        <div class="tabs" role="tablist" aria-label="Opções de entrega">
+          <button class="tab" role="tab" aria-selected="true" aria-controls="tab1" id="t1">Feito pela Solinte</button>
+          <button class="tab" role="tab" aria-selected="false" aria-controls="tab2" id="t2">Passo a passo (faça com a gente)</button>
+          <button class="tab" role="tab" aria-selected="false" aria-controls="tab3" id="t3">Sob medida</button>
+        </div>
+        <div id="tab1" class="tabpanel" aria-hidden="false" role="tabpanel" aria-labelledby="t1" style="margin-top:12px">
+          Implementamos automação + tráfego pago com suporte e acompanhamento integral.
+        </div>
+        <div id="tab2" class="tabpanel" aria-hidden="true" role="tabpanel" aria-labelledby="t2" style="margin-top:12px">
+          Construa seu agente de IA personalizado e potencialize o tráfego com nossos materiais e prompts aprovados.
+        </div>
+        <div id="tab3" class="tabpanel" aria-hidden="true" role="tabpanel" aria-labelledby="t3" style="margin-top:12px">
+          Soluções desenhadas para a realidade do seu negócio.
+        </div>
+      </div>
+
+      <div class="cta" style="margin-top:18px">
+        <a class="btn btn-primary js-wa" href="https://w.app/solintedigital?utm_source=site&utm_medium=cta&utm_campaign=lp_workshop&utm_content=como_funciona&text=Quero%20automatizar%20meu%20atendimento" target="_blank" rel="noopener">Quero automatizar</a>
+        <a class="btn btn-ghost" href="#resultados">Ver resultados</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Resultados / Prova social -->
+  <section id="resultados" class="sec">
+    <div class="container">
+      <span class="kicker">Resultados</span>
+      <h2 class="h2">Casos reais que trazem tranquilidade e conversão</h2>
+      <div class="grid-3">
+        <div class="card"><strong>Estética</strong><br><span class="muted">+32% ocupação em 45 dias; –28% no‑show</span></div>
+        <div class="card"><strong>Pilates</strong><br><span class="muted">Agenda preenchida 2 semanas antes</span></div>
+        <div class="card"><strong>Yoga</strong><br><span class="muted">Atendimento em &lt;3 min das 8h‑22h; NPS 9,1</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Dores e ganhos em cartões -->
+  <section id="dores-ganhos" class="sec soft">
+    <div class="container grid-2">
       <div class="card">
-        <ul class="list">
-          <li>❌ Sente que a comunicação da sua marca depende 100 % de você?</li>
-          <li>❌ Tenta automatizar, mas sente que tudo fica genérico ou impessoal?</li>
-          <li>❌ Seu potencial cliente não consegue “falar como você” nas redes ou nos canais de atendimento na hora que ele chega?</li>
-          <li>❌ Acha que usar IA vai deixar sua marca robótica, fria ou igual a todo mundo?</li>
+        <div class="chip">Dores comuns</div>
+        <ul class="list" style="margin-top:8px">
+          <li>Comunicação depende 100% de você</li>
+          <li>Automação genérica e impessoal</li>
+          <li>Clientes não “falam como você” nos canais</li>
+          <li>Medo de IA deixar a marca robótica</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="chip">Depois da implementação</div>
+        <ul class="list" style="margin-top:8px">
+          <li>Linguagem clara e estruturada</li>
+          <li>Equipe e IA alinhadas à sua voz</li>
+          <li>Fluxos de agendar, lembrar, reativar, pós</li>
+          <li>Tráfego encontra acolhimento e velocidade</li>
         </ul>
       </div>
     </div>
   </section>
 
-  <section id="antes" class="sec soft">
-    <div class="container">
-      <h2 class="h2">Antes de conhecer esta solução…</h2>
-      <p>Você sentia que tudo dependia de você: desde a criação de conteúdo, o atendimento, a conquista de potenciais clientes, até o tom usado em cada mensagem enviada. </p>
-      <p>Qualquer tentativa de automatizar parecia distanciar sua marca daquilo que você construiu com tanto cuidado.</p>
+  <!-- FAQ -->
+  <section id="faq" class="sec">
+    <div class="container faq">
+      <span class="kicker">FAQ</span>
+      <h2 class="h2">Perguntas frequentes</h2>
+      <details><summary>Isso não vai deixar minha marca “robótica”?</summary><div>Não. Começamos pela essência e guia de linguagem. A IA replica seu tom sem respostas genéricas.</div></details>
+      <details><summary>Preciso ter CRM ou ferramentas pagas?</summary><div>Não obrigatoriamente. Indicamos opções gratuitas e mostramos como começar simples.</div></details>
+      <details><summary>Quanto tempo para implementar?</summary><div>Você sai com tudo estruturado para começar na mesma semana. Ajustes seguem no acompanhamento.</div></details>
+      <details><summary>E se eu não tiver equipe?</summary><div>Funciona mesmo sozinha(o). O agente cobre horários e tarefas repetitivas; quando houver equipe, ela já recebe o guia.</div></details>
+      <details><summary>Como fica a privacidade dos meus clientes?</summary><div>Seguimos boas práticas de LGPD. Usamos somente os dados necessários e com consentimento.</div></details>
     </div>
   </section>
 
-  <section id="depois" class="sec">
+  <!-- CTA Final -->
+  <section id="contato" class="sec soft" style="position:relative; overflow:hidden">
+    <div class="blob indigo parallax" data-speed="0.2" style="top:-80px; right:-120px; width:340px; height:340px;"></div>
+    <div class="blob yellow parallax" data-speed="0.1" style="bottom:-120px; left:-100px; width:380px; height:380px;"></div>
     <div class="container">
-      <h2 class="h2">Depois da implementação …</h2>
-      <p>Você vai ver sua linguagem com clareza e estrutura. Agora, tem ferramentas para manter sua comunicação alinhada e presente — mesmo sem precisar estar em cada detalhe. A IA entra como apoio, e não como ameaça. E o tráfego agora, tem uma aliada quando os potenciais clientes chegam até você. </p>
-    </div>
-  </section>
-
-  <section id="conteudo" class="sec soft">
-    <div class="container">
-      <h2 class="h2">O que você vai receber</h2>
-      <p>Existem 03 opções para você chegar a faturar mais de 5k mês já:</p>
-      <div class="card"><p>Uma Automação feita diretamente pela minha equipe com o tráfego pago implementado junto. Aqui você terá suporte e acompanhamento integral da minha equipe.</p></div>
-      <div class="card" style="margin-top:10px"><p>Passo a passo de como construir o seu próprio agente de IA personalizado e como potencializar seu tráfego pago para ele. Aqui você receberá os materiais prontos para aplicação.Prompts de comportamento e Treinamento prontos e aprovados.</p></div>
-      <div class="card" style="margin-top:10px"><p>Outras soluções sob medida para o seu negócio.</p></div>
-    </div>
-  </section>
-
-  <section id="fazer" class="sec">
-    <div class="container">
-      <h2 class="h2">O que você vai conseguir fazer</h2>
-      <ul class="list">
-        <li>Usar IA com confiança e direção</li>
-        <li>Automatizar funis e conteúdo sem parecer genérico</li>
-        <li>Otimizar o seu tempo e o da equipe</li>
-        <li>Entrar de vez na nova era do mercado com IA e tráfego pago a seu favor</li>
-      </ul>
-    </div>
-  </section>
-
-  <section id="paraquem" class="sec soft">
-    <div class="container">
-      <h2 class="h2">Para quem é</h2>
-      <ul class="list">
-        <li>Para mulheres visionárias que lideram com o coração</li>
-        <li>Se envolve em cada detalhe da comunicação e quer que sua marca seja bem representada — por você, equipe ou IA.</li>
-        <li>Já tentou automatizar, mas não se viu ali — e quer estrutura para manter a mensagem firme.</li>
-        <li>Quer crescer com leveza, profissionalismo e coerência — perto, mas não mais sozinha.</li>
-      </ul>
-    </div>
-  </section>
-
-  <section id="porque" class="sec">
-    <div class="container">
-      <h2 class="h2">Por que isso funciona</h2>
-      <h3 class="h2" style="font-size:20px">Aplicável, sem retrabalho e libertador</h3>
-      <div class="card"><p><strong>1) Aplicável, não só inspirador</strong><br>Você sai com estrutura pronta + ferramenta configurada para você. Ou feita pelos nossos especialistas ou feita por você mesma através de nossa aula com um passo a passo.</p></div>
-      <div class="card" style="margin-top:10px"><p><strong>2) Evita retrabalho</strong><br>Sua equipe e a IA passam a falar como você, com menos idas e voltas.</p></div>
-      <div class="card" style="margin-top:10px"><p><strong>3) Libera sua agenda</strong><br>Comunicação delegável sem perder identidade. Assim como você a IA agora também pode te ajudar a marcar consultas e agendamentos sem esquecer de ninguém. </p></div>
-    </div>
-  </section>
-
-  <section id="quem" class="sec soft">
-    <div class="container">
-      <h2 class="h2">Quem somos nós</h2>
-      <h3 class="h2" style="font-size:20px">Solinte Digital — Soluções Inteligentes para negócios na internet</h3>
-      <p>A Solinte Digital é focada em criar e desenvolver soluções com Inteligência Artificial para empresários que enxergam o futuro. Desde 2018, ajudamos a escalar os negócios de nossos parceiros e a fortalecer sua presença no meio digital. Nossa CEO, Karine Irigoite, é uma experiente gestora e empresária dedicada a parcerias que agregam valor para empresas e novos negócios.</p>
-      <ul class="list">
-        <li>Parcerias de longo prazo e foco em resultado</li>
-        <li>Automação com IA sob medida para sua realidade</li>
-        <li>Escala com leveza: processos + marca consistente</li>
-        <li>Abordagem humana, acolhedora e alinhada aos Profissionais da saúde</li>
-      </ul>
-    </div>
-  </section>
-
-  <section id="sobre" class="sec">
-    <div class="container">
-      <h2 class="h2">Sobre</h2>
-      <h3 class="h2" style="font-size:20px">Quem conduz a expertise dos Agentes de IA e do Tráfego Pago</h3>
-      <p>Especialista em automação com IA para negócios de Profissionais da saúde, com foco em comunicação que respeita a essência da marca e agrega valor.</p>
-    </div>
-  </section>
-
-  <section id="contato" class="sec soft">
-    <div class="container">
-      <h2 class="h2">Contato</h2>
-      <p><strong>E-mail:</strong> <a href="mailto:suporte@gruposolinte.com.br">suporte@gruposolinte.com.br</a></p>
-      <p><strong>WhatsApp:</strong> <a class="js-wa" href="https://w.app/solintedigital" target="_blank" rel="noopener">Fale agora</a></p>
-    </div>
-  </section>
-
-  <section id="nichos" class="sec">
-    <div class="container">
-      <h2 class="h2">Fale com a Solinte Digital</h2>
-      <h3 class="h2" style="font-size:20px">Vamos automatizar seu negócio de Profissionais da saúde sem perder a essência?</h3>
-      <p>Tire suas dúvidas conosco se você estiver nestas áreas:</p>
-      <ul class="list">
-        <li>Saúde Integrada & Mental — Psicologia, terapias holísticas, meditação, coaching de vida, inteligência emocional</li>
-        <li>Fitness & Performance — Personal training, yoga, pilates, crossfit, treinos online, preparação esportiva</li>
-        <li>Nutrição & Saúde Preventiva — Nutricionistas, nutrologia, alimentação saudável, suplementos, programas detox</li>
-        <li>Beleza, Estética & Autocuidado — Clínicas de estética, dermatologia, massoterapia, spas, clean beauty</li>
-        <li>Turismo & Experiências — Retiros de yoga, viagens de bem-estar, resorts/spas, contato com a natureza</li>
-        <li>Lifestyle & Ambiente Saudável — Arquitetura biofílica, sustentabilidade, produtos naturais, tecnologia de bem-estar</li>
-        <li>Medicina & Terapias Avançadas — Medicina funcional, quiropraxia, acupuntura, ayurveda, terapias anti-aging</li>
-      </ul>
+      <span class="kicker">Fale com a Solinte Digital</span>
+      <h2 class="h2">Vamos automatizar seu negócio sem perder a essência?</h2>
+      <p class="lead">Tire dúvidas e receba os próximos passos agora.</p>
       <div class="cta">
-        <a class="btn btn-primary js-wa" href="https://w.app/solintedigital" target="_blank" rel="noopener">Falar no WhatsApp</a>
-        <a class="btn btn-ghost" href="mailto:suporte@gruposolinte.com.br">Ou nos envie um e-mail</a>
+        <a class="btn btn-primary js-wa" href="https://w.app/solintedigital?utm_source=site&utm_medium=cta&utm_campaign=lp_workshop&utm_content=cta_final&text=Quero%20automatizar%20meu%20atendimento%20com%20IA" target="_blank" rel="noopener">Falar no WhatsApp</a>
+        <a class="btn btn-ghost" href="mailto:suporte@gruposolinte.com.br">Ou envie um e‑mail</a>
       </div>
+      <p class="muted" style="margin-top:10px">Ao continuar, você concorda com nossa Política de Privacidade.</p>
     </div>
   </section>
 
   <div class="stickybar" aria-hidden="false">
-    <div class="wrap">Pronta para automatizar com essência? <a class="js-wa" href="https://w.app/solintedigital" target="_blank" rel="noopener">Fale conosco →</a></div>
+    <div class="wrap">Pronta(o) para automatizar com essência? <a class="js-wa" href="https://w.app/solintedigital?utm_source=site&utm_medium=cta&utm_campaign=lp_workshop&utm_content=sticky&text=Quero%20automatizar%20meu%20atendimento" target="_blank" rel="noopener" style="color:#fff; font-weight:900">Fale conosco →</a></div>
   </div>
 
   <footer>
-    <div class="container foot">© <span id="ano"></span> Solinte Digital — Profissionais da saúde + IA</div>
+    <div class="container muted">© <span id="ano"></span> Solinte Digital — Profissionais da saúde + IA</div>
   </footer>
 
   <script>
+    // Ano dinâmico
     document.getElementById('ano').textContent = new Date().getFullYear();
+
+    // Scroll suave
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', e=>{
+        const id = a.getAttribute('href');
+        const el = document.querySelector(id);
+        if(el){ e.preventDefault(); el.scrollIntoView({behavior:'smooth', block:'start'}); }
+      });
+    });
+
+    // Scroll Reveal
     (function(){
       const pr = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      const els = [...document.querySelectorAll('h1,.h2,.lead,.card,section p,ul.list li,.cta')];
+      const els = Array.from(document.querySelectorAll('h1,.h2,.lead,.card,.grid-3 > *, .grid-2 > *, .cta, .highlight'));
       if(!pr){
-        els.forEach((el,i)=>{ el.classList.add('reveal-init'); el.style.transitionDelay=(Math.min(i,10)*40)+'ms'; });
+        els.forEach((el,i)=>{ el.classList.add('reveal-init'); el.style.transitionDelay=(Math.min(i,10)*60)+'ms'; });
         const io = new IntersectionObserver(entries=>{
           entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('reveal-in'); io.unobserve(e.target);} });
         }, {threshold:.12, rootMargin:'0px 0px -8% 0px'});
         els.forEach(el=>io.observe(el));
       }
     })();
+
+    // Parallax blobs
+    (function(){
+      const pr = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if(pr) return;
+      const items = Array.from(document.querySelectorAll('.parallax'));
+      let ticking=false;
+      function onScroll(){
+        if(!ticking){
+          requestAnimationFrame(()=>{
+            const y = window.scrollY || window.pageYOffset;
+            items.forEach(el=>{
+              const speed = parseFloat(el.dataset.speed || '0.15');
+              el.style.transform = `translate3d(0, ${Math.round(y*speed)}px, 0)`;
+            });
+            ticking=false;
+          });
+          ticking=true;
+        }
+      }
+      onScroll(); window.addEventListener('scroll', onScroll, {passive:true});
+    })();
+
+    // Comparison slider logic
+    (function(){
+      const slider = document.getElementById('slider');
+      const after = document.getElementById('after-pane');
+      if(!slider || !after) return;
+      function update(){ after.style.width = slider.value + '%'; }
+      slider.addEventListener('input', update); update();
+    })();
+
+    // Tabs logic (3 opções)
+    (function(){
+      const tabs = document.querySelectorAll('.tab');
+      const panels = document.querySelectorAll('.tabpanel');
+      tabs.forEach(tab=>{
+        tab.addEventListener('click', ()=>{
+          tabs.forEach(t=>t.setAttribute('aria-selected','false'));
+          panels.forEach(p=>p.setAttribute('aria-hidden','true'));
+          tab.setAttribute('aria-selected','true');
+          const id = tab.getAttribute('aria-controls');
+          document.getElementById(id).setAttribute('aria-hidden','false');
+        });
+        tab.addEventListener('keydown', (e)=>{
+          if(e.key==='ArrowRight' || e.key==='ArrowLeft'){
+            const i = Array.from(tabs).indexOf(tab);
+            const dir = e.key==='ArrowRight' ? 1 : -1;
+            const nxt = tabs[(i+dir+tabs.length)%tabs.length];
+            nxt.focus(); nxt.click();
+          }
+        });
+      });
+    })();
+
+    // Rastreamento simples (GA4 via dataLayer + Vercel events)
+    window.dataLayer = window.dataLayer || [];
+    function dlPush(evt){ window.dataLayer.push(evt); }
+    function bindTrack(selector, name){
+      document.querySelectorAll(selector).forEach(el=>{
+        el.addEventListener('click', ()=>{
+          dlPush({event:name, label:el.textContent.trim()});
+          window.va && window.va('event', name);
+        });
+      });
+    }
+    bindTrack('.js-wa','cta_whatsapp_click');
   </script>
 
-  <script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments)};</script>
+  <!-- Vercel Web Analytics (HTML) -->
+  <script>
+    window.va = window.va || function(){(window.vaq = window.vaq || []).push(arguments)};
+  </script>
   <script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>
