@@ -7,12 +7,6 @@
   <meta name="description" content="Automação humanizada + tráfego pago para Profissionais da saúde. Ganhe escala sem perder a essência da marca.">
   <link rel="icon" href="data:;base64,iVBORw0KGgo=">
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="Solinte Digital — Profissionais da saúde + IA">
-  <meta property="og:description" content="Automação humanizada + tráfego pago para Profissionais da saúde.">
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="https://via.placeholder.com/1200x630.png?text=Solinte+Digital">
-
   <style>
     *,*::before,*::after{box-sizing:border-box} html,body{margin:0;padding:0}
     img{max-width:100%;display:block} a{text-decoration:none}
@@ -57,8 +51,8 @@
     .hero{padding:96px 0 64px; position:relative; overflow:hidden; background:
       radial-gradient(120% 140% at 110% -10%, color-mix(in srgb, var(--accent) 50%, transparent), transparent),
       radial-gradient(120% 140% at -10% 120%, color-mix(in srgb, var(--sec) 60%, transparent), transparent)}
-    .hero .grid{display:grid; grid-template-columns:1.1fr .9fr; gap:28px}
-    @media (max-width:950px){.hero .grid{grid-template-columns:1fr}}
+    .hero .grid{display:grid; grid-template-columns:1.1fr .9fr; gap:28px; position:relative}
+    .hero .grid > *{position:relative; z-index:1} /* ensure content above blobs */
 
     .highlight{display:inline-grid; place-items:center; padding:8px 12px; background:#ffffffa8; border:1px solid #e2e8f0; border-radius:999px; font-weight:800; width:max-content; backdrop-filter:blur(6px)}
     .rotator{display:inline-block; min-width:12ch; white-space:nowrap; position:relative}
@@ -83,17 +77,18 @@
     .tab[aria-selected="true"]{background:var(--pri); color:#fff}
     .tabpanel{display:none}
     .tabpanel[aria-hidden="false"]{display:block}
+    .tabpanel .cols{display:grid; grid-template-columns:1.2fr .8fr; gap:18px}
+    @media (max-width:900px){ .tabpanel .cols{grid-template-columns:1fr} }
 
     /* Comparison slider */
-    .compare{position:relative; border-radius:var(--radius); overflow:hidden; border:1px solid #e2e8f0; background:#fff; box-shadow:0 10px 34px -22px #0005}
+    .compare{position:relative; z-index:2; isolation:isolate; border-radius:var(--radius); overflow:hidden; border:1px solid #e2e8f0; background:#fff; box-shadow:0 10px 34px -22px #0005}
     .compare .pane{padding:20px}
-    .compare .after{position:absolute; inset:0 auto 0 0; width:50%; border-right:2px dashed #0f172a33; background:linear-gradient(0deg,#fff, #fff)}
+    .compare .after{position:absolute; inset:0 auto 0 0; width:50%; border-right:2px dashed #0f172a33; background:linear-gradient(0deg,#fff, #fff); pointer-events:none}
     .compare .label{position:absolute; top:10px; left:10px; background:#0f172a; color:#fff; font-size:12px; padding:4px 8px; border-radius:999px}
     .compare .label.after{left:auto; right:10px; background:var(--pri)}
     .compare input[type="range"]{position:absolute; inset:auto 0 0 0; width:100%; -webkit-appearance:none; appearance:none; background:transparent}
     .compare input[type="range"]::-webkit-slider-thumb{ -webkit-appearance:none; appearance:none; width:20px; height:20px; border-radius:50%; background:var(--pri); border:2px solid #fff; box-shadow:0 2px 10px #0004}
     .compare input[type="range"]::-moz-range-thumb{ width:20px; height:20px; border-radius:50%; background:var(--pri); border:2px solid #fff }
-    @media (prefers-reduced-motion: reduce){ .compare input[type="range"]{display:none} }
 
     /* FAQ */
     .faq details{border:1px solid #e2e8f0; padding:16px 18px; border-radius:14px; background:#fff}
@@ -101,7 +96,7 @@
     .faq summary{cursor:pointer; font-weight:800}
 
     /* Calm blobs */
-    .blob{position:absolute; pointer-events:none; border-radius:50%; filter:blur(42px); opacity:.22; mix-blend-mode:multiply; background:radial-gradient(closest-side, var(--pri) 0%, transparent 70%);}
+    .blob{position:absolute; pointer-events:none; border-radius:50%; filter:blur(42px); opacity:.22; mix-blend-mode:multiply; background:radial-gradient(closest-side, var(--pri) 0%, transparent 70%); z-index:0}
     .blob.yellow{background:radial-gradient(closest-side, #facc15 0%, transparent 70%);}
     .blob.indigo{background:radial-gradient(closest-side, #818cf8 0%, transparent 70%);}
     .parallax{will-change:transform}
@@ -146,7 +141,7 @@
         </div>
         <div class="muted" style="margin-top:10px">Atendemos clínicas, consultórios, estética, nutrição, psicologia, pilates, yoga e mais.</div>
       </div>
-      <div class="card" aria-hidden="true">
+      <div class="card" aria-hidden="false">
         <div class="chip">Exemplo do seu agente</div>
         <p class="muted" style="margin-top:8px">Conversa acolhedora • Respostas em &lt;3 min • Guia de linguagem aplicado</p>
         <div class="compare" style="margin-top:12px">
@@ -193,14 +188,73 @@
           <button class="tab" role="tab" aria-selected="false" aria-controls="tab2" id="t2">Passo a passo (faça com a gente)</button>
           <button class="tab" role="tab" aria-selected="false" aria-controls="tab3" id="t3">Sob medida</button>
         </div>
+
+        <!-- Painéis ricos -->
         <div id="tab1" class="tabpanel" aria-hidden="false" role="tabpanel" aria-labelledby="t1" style="margin-top:12px">
-          Implementamos automação + tráfego pago com suporte e acompanhamento integral.
+          <div class="cols">
+            <div>
+              <h3>Você foca no cuidado, nós cuidamos da operação</h3>
+              <ul class="list">
+                <li><strong>Diagnóstico de Essência</strong>: voz da marca, valores, limites e mapeamento de jornadas.</li>
+                <li><strong>Guia de Linguagem</strong> aplicável (tom, vocabulário, exemplos bons/ruins).</li>
+                <li><strong>Agente de IA</strong> configurado (comportamentos, memória, fallback humano).</li>
+                <li><strong>Fluxos prontos</strong>: agendamento, confirmação, lembretes, no-show, reativação e pós-atendimento.</li>
+                <li><strong>Integrações</strong> (WhatsApp oficial/CRM/agenda).</li>
+                <li><strong>Tráfego pago</strong> estruturado (campanhas, públicos, criativos baseados na essência).</li>
+                <li><strong>Métricas</strong> e painel simples de acompanhamento.</li>
+                <li><strong>Treinamento</strong> da equipe + 30 dias de ajustes finos.</li>
+              </ul>
+            </div>
+            <div>
+              <p class="muted"><strong>Prazo médio</strong>: 2–4 semanas • <strong>Ideal para</strong>: quem quer velocidade e menos envolvimento.</p>
+              <div class="cta">
+                <a class="btn btn-primary js-wa" href="https://w.app/solintedigital?text=Quero%20Feito%20pela%20Solinte" target="_blank" rel="noopener">Quero que vocês façam</a>
+              </div>
+            </div>
+          </div>
         </div>
+
         <div id="tab2" class="tabpanel" aria-hidden="true" role="tabpanel" aria-labelledby="t2" style="margin-top:12px">
-          Construa seu agente de IA personalizado e potencialize o tráfego com nossos materiais e prompts aprovados.
+          <div class="cols">
+            <div>
+              <h3>Construa com a gente — mão na massa guiada</h3>
+              <ul class="list">
+                <li><strong>Roteiro prático</strong> para levantar essência e público.</li>
+                <li><strong>Templates</strong> do Guia de Linguagem + exemplos prontos.</li>
+                <li><strong>Prompts aprovados</strong> (comportamentos, memórias, segurança).</li>
+                <li><strong>Checklists</strong> de fluxos: do primeiro contato ao pós.</li>
+                <li><strong>Aulas curtas</strong> e gravações.</li>
+                <li><strong>Revisão do seu agente</strong> por um especialista Solinte.</li>
+                <li><strong>Suporte por 30 dias</strong> no canal de dúvidas.</li>
+              </ul>
+            </div>
+            <div>
+              <p class="muted"><strong>Duração</strong>: 1–2 semanas • <strong>Ideal para</strong>: quem quer aprender e manter autonomia.</p>
+              <div class="cta">
+                <a class="btn btn-primary js-wa" href="https://w.app/solintedigital?text=Quero%20Passo%20a%20Passo" target="_blank" rel="noopener">Quero fazer com vocês</a>
+              </div>
+            </div>
+          </div>
         </div>
+
         <div id="tab3" class="tabpanel" aria-hidden="true" role="tabpanel" aria-labelledby="t3" style="margin-top:12px">
-          Soluções desenhadas para a realidade do seu negócio.
+          <div class="cols">
+            <div>
+              <h3>Projeto sob medida</h3>
+              <ul class="list">
+                <li><strong>Integrações avançadas</strong>: prontuário, telefonia, BI, omnichannel.</li>
+                <li><strong>Agentes especializados</strong>: pré-consulta, qualificação, recuperação, SAC.</li>
+                <li><strong>Dashboards</strong> de indicadores e automações de backoffice.</li>
+                <li><strong>Treinamento in‑company</strong> e playbook operacional.</li>
+              </ul>
+            </div>
+            <div>
+              <p class="muted"><strong>Escopo e investimento</strong> definidos após diagnóstico rápido (gratuito).</p>
+              <div class="cta">
+                <a class="btn btn-primary js-wa" href="https://w.app/solintedigital?text=Quero%20Sob%20Medida" target="_blank" rel="noopener">Solicitar escopo</a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
