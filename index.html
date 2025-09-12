@@ -90,11 +90,14 @@
     .compare input[type="range"]::-webkit-slider-thumb{ -webkit-appearance:none; appearance:none; width:20px; height:20px; border-radius:50%; background:var(--pri); border:2px solid #fff; box-shadow:0 2px 10px #0004}
     .compare input[type="range"]::-moz-range-thumb{ width:20px; height:20px; border-radius:50%; background:var(--pri); border:2px solid #fff }
 
-    .compare .handle{position:absolute; top:50%; transform:translate(-50%,-50%); width:18px; height:18px; border-radius:50%; background:var(--pri); border:2px solid #fff; box-shadow:0 2px 10px #0004; cursor:ew-resize; z-index:3}
+    .compare .handle{display:none; position:absolute; top:50%; transform:translate(-50%,-50%); width:18px; height:18px; border-radius:50%; background:var(--pri); border:2px solid #fff; box-shadow:0 2px 10px #0004; cursor:ew-resize; z-index:3}
 .compare .handle:focus-visible{outline:2px solid #fff; box-shadow:0 0 0 3px var(--ring)}
 .hero .card{background:#fff}
 
-    /* FAQ */
+    .compare .switch{position:absolute; top:8px; left:50%; transform:translateX(-50%); background:#f1f5f9; border:1px solid #e2e8f0; border-radius:999px; padding:4px; display:flex; gap:4px; z-index:4}
+.compare .sw-btn{border:none; background:transparent; font-weight:800; padding:6px 10px; border-radius:999px; cursor:pointer}
+.compare .sw-btn[aria-pressed="true"]{background:var(--pri); color:#fff}
+/* FAQ */
     .faq details{border:1px solid #e2e8f0; padding:16px 18px; border-radius:14px; background:#fff}
     .faq details+details{margin-top:12px}
     .faq summary{cursor:pointer; font-weight:800}
@@ -165,7 +168,7 @@
               </ul>
             </div>
           </div>
-          <div id="cmpHandle" class="handle" role="slider" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" aria-label="Ajustar comparação"></div>
+          <div class="switch" role="group" aria-label="Mostrar Antes ou Depois"><button class="sw-btn" data-val="0" aria-pressed="false">Antes</button><button class="sw-btn" data-val="100" aria-pressed="true">Depois</button></div>
         </div>
       </div>
     </div>
@@ -389,39 +392,19 @@
       onScroll(); window.addEventListener('scroll', onScroll, {passive:true});
     })();
 
-    // Comparison slider logic (custom handle)
+    // Comparison toggle logic (Antes/Depois)
 (function(){
   const container = document.querySelector('.compare');
   const after = document.getElementById('after-pane');
-  const handle = document.getElementById('cmpHandle');
-  if(!container || !after || !handle) return;
-  let value = 50, dragging=false;
+  const btns = container ? container.querySelectorAll('.sw-btn') : [];
+  if(!container || !after || !btns.length) return;
   function setVal(v){
-    value = Math.min(100, Math.max(0, v));
+    const value = Math.min(100, Math.max(0, v));
     after.style.width = value + '%';
-    handle.style.left = value + '%';
-    handle.setAttribute('aria-valuenow', Math.round(value));
+    btns.forEach(b => b.setAttribute('aria-pressed', b.dataset.val == value ? 'true' : 'false'));
   }
-  function fromEvent(e){
-    const rect = container.getBoundingClientRect();
-    const clientX = e.touches ? e.touches[0].clientX : e.clientX;
-    const pct = ((clientX - rect.left) / rect.width) * 100;
-    return pct;
-  }
-  function onDown(e){ dragging=true; setVal(fromEvent(e)); e.preventDefault(); }
-  function onMove(e){ if(!dragging) return; setVal(fromEvent(e)); }
-  function onUp(){ dragging=false; }
-  handle.addEventListener('mousedown', onDown);
-  window.addEventListener('mousemove', onMove, {passive:false});
-  window.addEventListener('mouseup', onUp);
-  handle.addEventListener('touchstart', onDown, {passive:false});
-  window.addEventListener('touchmove', onMove, {passive:false});
-  window.addEventListener('touchend', onUp);
-  handle.addEventListener('keydown', (e)=>{
-    if(e.key==='ArrowLeft') setVal(value-2);
-    if(e.key==='ArrowRight') setVal(value+2);
-  });
-  setVal(50);
+  btns.forEach(b=> b.addEventListener('click', ()=> setVal(parseFloat(b.dataset.val))));
+  setVal(50); // start in meio
 })();
 
     // Tabs logic (3 opções)
