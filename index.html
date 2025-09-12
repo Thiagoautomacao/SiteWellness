@@ -81,9 +81,9 @@
     @media (max-width:900px){ .tabpanel .cols{grid-template-columns:1fr} }
 
     /* Comparison slider */
-    .compare{position:relative; z-index:2; isolation:isolate; border-radius:var(--radius); overflow:hidden; border:1px solid #e2e8f0; background:#fff; box-shadow:0 10px 34px -22px #0005}
+    .compare{position:relative; z-index:2; isolation:isolate; z-index:2; isolation:isolate; border-radius:var(--radius); overflow:hidden; border:1px solid #e2e8f0; background:#fff; box-shadow:0 10px 34px -22px #0005}
     .compare .pane{padding:20px}
-    .compare .after{position:absolute; inset:0 auto 0 0; width:50%; border-right:2px dashed #0f172a33; background:linear-gradient(0deg,#fff, #fff); pointer-events:none}
+    .compare .after{position:absolute; inset:0 auto 0 0; width:50%; border-right:2px dashed #0f172a33; background:linear-gradient(0deg,#fff, #fff); pointer-events:none; pointer-events:none}
     .compare .label{position:absolute; top:10px; left:10px; background:#0f172a; color:#fff; font-size:12px; padding:4px 8px; border-radius:999px}
     .compare .label.after{left:auto; right:10px; background:var(--pri)}
     .compare input[type="range"]{position:absolute; inset:auto 0 0 0; width:100%; -webkit-appearance:none; appearance:none; background:transparent}
@@ -96,7 +96,7 @@
     .faq summary{cursor:pointer; font-weight:800}
 
     /* Calm blobs */
-    .blob{position:absolute; pointer-events:none; border-radius:50%; filter:blur(42px); opacity:.22; mix-blend-mode:multiply; background:radial-gradient(closest-side, var(--pri) 0%, transparent 70%); z-index:0}
+    .blob{position:absolute; z-index:0; pointer-events:none; border-radius:50%; filter:blur(42px); opacity:.22; mix-blend-mode:multiply; background:radial-gradient(closest-side, var(--pri) 0%, transparent 70%); z-index:0}
     .blob.yellow{background:radial-gradient(closest-side, #facc15 0%, transparent 70%);}
     .blob.indigo{background:radial-gradient(closest-side, #818cf8 0%, transparent 70%);}
     .parallax{will-change:transform}
@@ -191,69 +191,76 @@
 
         <!-- Painéis ricos -->
         <div id="tab1" class="tabpanel" aria-hidden="false" role="tabpanel" aria-labelledby="t1" style="margin-top:12px">
-          <div class="cols">
-            <div>
-              <h3>Você foca no cuidado, nós cuidamos da operação</h3>
-              <ul class="list">
-                <li><strong>Diagnóstico de Essência</strong>: voz da marca, valores, limites e mapeamento de jornadas.</li>
-                <li><strong>Guia de Linguagem</strong> aplicável (tom, vocabulário, exemplos bons/ruins).</li>
-                <li><strong>Agente de IA</strong> configurado (comportamentos, memória, fallback humano).</li>
-                <li><strong>Fluxos prontos</strong>: agendamento, confirmação, lembretes, no-show, reativação e pós-atendimento.</li>
-                <li><strong>Integrações</strong> (WhatsApp oficial/CRM/agenda).</li>
-                <li><strong>Tráfego pago</strong> estruturado (campanhas, públicos, criativos baseados na essência).</li>
-                <li><strong>Métricas</strong> e painel simples de acompanhamento.</li>
-                <li><strong>Treinamento</strong> da equipe + 30 dias de ajustes finos.</li>
-              </ul>
-            </div>
-            <div>
-              <p class="muted"><strong>Prazo médio</strong>: 2–4 semanas • <strong>Ideal para</strong>: quem quer velocidade e menos envolvimento.</p>
-              <div class="cta">
-                <a class="btn btn-primary js-wa" href="https://w.app/solintedigital?text=Quero%20Feito%20pela%20Solinte" target="_blank" rel="noopener">Quero que vocês façam</a>
-              </div>
-            </div>
+  <div class="cols">
+    <div>
+      <h3>Você foca no cuidado, nós cuidamos da operação</h3>
+      <ul class="list">
+        <li><strong>Diagnóstico de Essência</strong>: voz da marca, valores, limites e mapeamento de jornadas.</li>
+        <li><strong>Guia de Linguagem</strong> aplicável (tom, vocabulário, mensagens boas/ruins).</li>
+        <li><strong>Agente de IA</strong> configurado (comportamentos, memória, fallback humano).</li>
+        <li><strong>Fluxos prontos</strong>: agendamento, confirmação, lembretes, no‑show, reativação e pós-atendimento.</li>
+        <li><strong>Integrações</strong> (WhatsApp oficial/CRM/agenda) e gatilhos.</li>
+      </ul>
+      <p class="muted"><strong>Resultados esperados</strong>: respostas &lt;3 min, menos falhas de comunicação, mais conversões por atendimento.</p>
+    </div>
+    <div>
+      <p class="muted"><strong>Prazo médio</strong>: 2–4 semanas • <strong>Ideal para</strong>: quem quer velocidade e menos envolvimento.</p>
+      <div class="cta">
+        <a class="btn btn-primary js-wa" href="https://w.app/solintedigital?text=Quero%20Feito%20pela%20Solinte" target="_blank" rel="noopener">Quero que vocês façam</a>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
           </div>
         </div>
 
         <div id="tab2" class="tabpanel" aria-hidden="true" role="tabpanel" aria-labelledby="t2" style="margin-top:12px">
-          <div class="cols">
-            <div>
-              <h3>Construa com a gente — mão na massa guiada</h3>
-              <ul class="list">
-                <li><strong>Roteiro prático</strong> para levantar essência e público.</li>
-                <li><strong>Templates</strong> do Guia de Linguagem + exemplos prontos.</li>
-                <li><strong>Prompts aprovados</strong> (comportamentos, memórias, segurança).</li>
-                <li><strong>Checklists</strong> de fluxos: do primeiro contato ao pós.</li>
-                <li><strong>Aulas curtas</strong> e gravações.</li>
-                <li><strong>Revisão do seu agente</strong> por um especialista Solinte.</li>
-                <li><strong>Suporte por 30 dias</strong> no canal de dúvidas.</li>
-              </ul>
-            </div>
-            <div>
-              <p class="muted"><strong>Duração</strong>: 1–2 semanas • <strong>Ideal para</strong>: quem quer aprender e manter autonomia.</p>
-              <div class="cta">
-                <a class="btn btn-primary js-wa" href="https://w.app/solintedigital?text=Quero%20Passo%20a%20Passo" target="_blank" rel="noopener">Quero fazer com vocês</a>
-              </div>
-            </div>
+  <div class="cols">
+    <div>
+      <h3>Construa com a gente — mão na massa guiada</h3>
+      <ul class="list">
+        <li><strong>Roteiro prático</strong> para levantar essência e público.</li>
+        <li><strong>Templates</strong> do Guia de Linguagem + exemplos prontos.</li>
+        <li><strong>Prompts aprovados</strong> (comportamentos, memórias, segurança).</li>
+        <li><strong>Checklists</strong> de fluxos: do primeiro contato ao pós.</li>
+        <li><strong>Aulas curtas</strong>, gravações e revisão do seu agente por especialista.</li>
+      </ul>
+      <p class="muted"><strong>Resultados esperados</strong>: autonomia com qualidade; playbook replicável para equipe.</p>
+    </div>
+    <div>
+      <p class="muted"><strong>Duração</strong>: 1–2 semanas • <strong>Ideal para</strong>: quem quer aprender e manter autonomia.</p>
+      <div class="cta">
+        <a class="btn btn-primary js-wa" href="https://w.app/solintedigital?text=Quero%20Passo%20a%20Passo" target="_blank" rel="noopener">Quero fazer com vocês</a>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
           </div>
         </div>
 
         <div id="tab3" class="tabpanel" aria-hidden="true" role="tabpanel" aria-labelledby="t3" style="margin-top:12px">
-          <div class="cols">
-            <div>
-              <h3>Projeto sob medida</h3>
-              <ul class="list">
-                <li><strong>Integrações avançadas</strong>: prontuário, telefonia, BI, omnichannel.</li>
-                <li><strong>Agentes especializados</strong>: pré-consulta, qualificação, recuperação, SAC.</li>
-                <li><strong>Dashboards</strong> de indicadores e automações de backoffice.</li>
-                <li><strong>Treinamento in‑company</strong> e playbook operacional.</li>
-              </ul>
-            </div>
-            <div>
-              <p class="muted"><strong>Escopo e investimento</strong> definidos após diagnóstico rápido (gratuito).</p>
-              <div class="cta">
-                <a class="btn btn-primary js-wa" href="https://w.app/solintedigital?text=Quero%20Sob%20Medida" target="_blank" rel="noopener">Solicitar escopo</a>
-              </div>
-            </div>
+  <div class="cols">
+    <div>
+      <h3>Projeto sob medida</h3>
+      <ul class="list">
+        <li><strong>Integrações avançadas</strong>: prontuário, telefonia, BI, omnichannel.</li>
+        <li><strong>Agentes especializados</strong>: pré-consulta, qualificação, recuperação, SAC.</li>
+        <li><strong>Dashboards</strong> de indicadores e automações de backoffice.</li>
+        <li><strong>Treinamento in‑company</strong> e playbook operacional.</li>
+      </ul>
+      <p class="muted"><strong>Resultados esperados</strong>: operação integrada ponta‑a‑ponta e dados para decisões.</p>
+    </div>
+    <div>
+      <p class="muted"><strong>Escopo e investimento</strong> definidos após diagnóstico rápido (gratuito).</p>
+      <div class="cta">
+        <a class="btn btn-primary js-wa" href="https://w.app/solintedigital?text=Quero%20Sob%20Medida" target="_blank" rel="noopener">Solicitar escopo</a>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
           </div>
         </div>
       </div>
@@ -271,9 +278,9 @@
       <span class="kicker">Resultados</span>
       <h2 class="h2">Casos reais que trazem tranquilidade e conversão</h2>
       <div class="grid-3">
-        <div class="card"><strong>Estética</strong><br><span class="muted">+32% ocupação em 45 dias; –28% no‑show</span></div>
+        <div class="card"><strong>Estética</strong><br><span class="muted">+32% ocupação em 45 dias; –28% nao comparecimento</span></div>
         <div class="card"><strong>Pilates</strong><br><span class="muted">Agenda preenchida 2 semanas antes</span></div>
-        <div class="card"><strong>Yoga</strong><br><span class="muted">Atendimento em &lt;3 min das 8h‑22h; NPS 9,1</span></div>
+        <div class="card"><strong>Yoga</strong><br><span class="muted">Atendimento em &lt;1 min 24h por dia; NPS 9,1</span></div>
       </div>
     </div>
   </section>
