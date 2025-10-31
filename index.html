@@ -33,7 +33,7 @@
     .soft{background:var(--bg-soft)}
     .grid-3{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:22px}
     .grid-2{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:22px}
-    @media (max-width:900px){.grid-3,.grid-2{grid-template-columns:1fr}}
+    @media (max-width:900px){.grid-3,.grid-2,.hero .grid,.tabpanel .cols{grid-template-columns:1fr}} /* <<< AJUSTADO */
     .card{background:rgba(255,255,255,.85); border:1px solid #e2e8f0; border-radius:var(--radius); padding:22px; box-shadow:0 12px 32px -20px #0003; backdrop-filter:saturate(130%) blur(6px)}
     .chip{display:inline-flex; align-items:center; gap:8px; padding:6px 10px; border-radius:999px; background:#eef2ff; color:#3730a3; font-weight:700; font-size:12px}
     .list{margin:0; padding-left:18px}
@@ -121,6 +121,29 @@
     .reveal-in{opacity:1; transform:none; transition:opacity .8s ease, transform .8s ease}
     @media (prefers-reduced-motion: reduce){ .reveal-init{opacity:1; transform:none} .reveal-in{transition:none} }
   </style>
+
+  <!-- INÍCIO DOS AJUSTES PARA VERSÃO MOBILE -->
+  <style>
+    @media (max-width: 768px) {
+      /* 1. AJUSTE DE CABEÇALHO: Oculta o nome da marca para evitar quebra de layout */
+      .brand span {
+        display: none;
+      }
+
+      /* 2. AJUSTE DE ESPAÇAMENTO: Reduz o padding vertical no topo do site */
+      .hero {
+        padding-top: 40px;
+        padding-bottom: 40px;
+      }
+      
+      /* 3. AJUSTE DO BOTÃO FIXO: Oculta o texto longo inicial */
+      .sticky-text {
+        display: none;
+      }
+    }
+  </style>
+  <!-- FIM DOS AJUSTES PARA VERSÃO MOBILE -->
+
 </head>
 <body>
   <!-- Header -->
@@ -311,7 +334,10 @@
   </section>
 
   <div class="stickybar" aria-hidden="false">
-    <div class="wrap">Pronta(o) para automatizar com essência? <a class="js-wa" href="https://w.app/solintedigital?utm_source=site&utm_medium=cta&utm_campaign=lp_workshop&utm_content=sticky&text=Quero%20automatizar%20meu%20atendimento" target="_blank" rel="noopener" style="color:#fff; font-weight:900">Fale conosco →</a></div>
+    <div class="wrap">
+      <!-- A MUDANÇA ESTÁ AQUI: o texto longo foi envolvido por um <span> -->
+      <span class="sticky-text">Pronta(o) para automatizar com essência? </span><a class="js-wa" href="https://w.app/solintedigital?utm_source=site&utm_medium=cta&utm_campaign=lp_workshop&utm_content=sticky&text=Quero%20automatizar%20meu%20atendimento" target="_blank" rel="noopener" style="color:#fff; font-weight:900">Fale conosco →</a>
+    </div>
   </div>
 
   <footer>
